@@ -6,11 +6,11 @@ import os
 import numpy as np
 
 
-class ISIC(Dataset):
+class MiniImageNetS(Dataset):
 
     def __init__(self, setname, args, return_path=False):
-        IMAGE_PATH = os.path.join(args.data_dir, 'isic/images')
-        SPLIT_PATH = os.path.join(args.data_dir, 'isic')
+        IMAGE_PATH = os.path.join(args.data_dir, 'mini_imagenet/processed_images')
+        SPLIT_PATH = os.path.join(args.data_dir, 'mi_split_S')
 
         csv_path = osp.join(SPLIT_PATH, setname + '.csv')
         lines = [x.strip() for x in open(csv_path, 'r').readlines()][1:]
@@ -21,7 +21,6 @@ class ISIC(Dataset):
 
         self.wnids = []
         self.args = args
-        self.key = {}
 
         for l in lines:
             #print(l)
@@ -30,17 +29,12 @@ class ISIC(Dataset):
             if wnid not in self.wnids:
                 self.wnids.append(wnid)
                 lb += 1
-                self.key[wnid] = lb
             data.append(path)
-            label.append(self.key[wnid])
+            label.append(lb)
 
         self.data = data  # data path of all data
         self.label = label  # label of all data
         self.num_class = len(set(label))
-        # print(data)
-        #print(label)
-        #print(self.num_class)
-        #print(setname)
         self.return_path = return_path
 
         if setname == 'val' or setname == 'test':

@@ -1,2 +1,5 @@
-# Relatioanal Embedding for Few-Shot Clasification (ICCV 2021)
-will be released soon.
+# Renet-pytorch
+Pytorch implementation for paper [Renet (Relational embedding network) ](https://arxiv.org/abs/2108.09666).
+
+## Requirements
+-
