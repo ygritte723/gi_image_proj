@@ -20,11 +20,15 @@ Pytorch implementation for paper [Renet (Relational embedding network)](https://
 
 ## Mini-Imagenet-S
 
-According to the split in [ICLR(Meta-Learning with Fewer Tasks through Task Interpolation)](http://arxiv.org/abs/2106.02695), I split the raw mini-Imagenet dataset to reduce its training classes by specific sequence.
+According to the split in [ICLR(Meta-Learning with Fewer Tasks through Task Interpolation)](http://arxiv.org/abs/2106.02695), I split the raw [mini-Imagenet](https://github.com/yaoyao-liu/mini-imagenet-tools) dataset to reduce its training classes by specific sequence.
 
 ## Dermnet-S
 
-According to the split in [ICLR(Meta-Learning with Fewer Tasks through Task Interpolation)](http://arxiv.org/abs/2106.02695), I split the raw Dermnet dataset to reduce its training classes by specific sequence.
+According to the split in [ICLR(Meta-Learning with Fewer Tasks through Task Interpolation)](http://arxiv.org/abs/2106.02695), I split the raw [Dermnet](https://www.kaggle.com/datasets/shubhamgoel27/dermnet) dataset to reduce its training classes by specific sequence.
+
+## ISIC 2018
+
+[ISIC 2018](https://challenge.isic-archive.com/data/#2018) is an extremely unbalanced dataset which only has 7 classes in total. So I trained it in 2-way 5-shot mode, while others are trained in 5-way mode.
 
 ## Remove validation
 
