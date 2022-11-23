@@ -1,0 +1,104 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.2
+    code_path: code/train.py
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.9.6
+    start_time: 1666849750.860803
+    t:
+      1:
+      - 1
+      - 55
+      2:
+      - 1
+      - 41
+      - 55
+      3:
+      - 1
+      - 13
+      - 16
+      - 23
+      4: 3.9.6
+      5: 0.13.2
+      8:
+      - 5
+batch:
+  desc: null
+  value: 128
+data_dir:
+  desc: null
+  value: /root/autodl-tmp
+dataset:
+  desc: null
+  value: isic
+device_ids:
+  desc: null
+  value:
+  - 0
+extra_dir:
+  desc: null
+  value: your_run
+gamma:
+  desc: null
+  value: 0.05
+gpu:
+  desc: null
+  value: '0'
+lamb:
+  desc: null
+  value: 0.25
+lr:
+  desc: null
+  value: 0.1
+max_epoch:
+  desc: null
+  value: 60
+milestones:
+  desc: null
+  value:
+  - 40
+  - 50
+no_wandb:
+  desc: null
+  value: false
+num_gpu:
+  desc: null
+  value: 1
+query:
+  desc: null
+  value: 15
+save_all:
+  desc: null
+  value: false
+save_path:
+  desc: null
+  value: checkpoints/isic/5shot-2way/your_run
+seed:
+  desc: null
+  value: 1
+self_method:
+  desc: null
+  value: scr
+shot:
+  desc: null
+  value: 5
+temperature:
+  desc: null
+  value: 0.2
+temperature_attn:
+  desc: null
+  value: 5.0
+test_episode:
+  desc: null
+  value: 2000
+val_episode:
+  desc: null
+  value: 200
+way:
+  desc: null
+  value: 2

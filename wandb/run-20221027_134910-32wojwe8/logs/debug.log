@@ -1,0 +1,27 @@
+2022-10-27 13:49:10,850 INFO    MainThread:12597 [wandb_setup.py:_flush():76] Configure stats pid to 12597
+2022-10-27 13:49:10,851 INFO    MainThread:12597 [wandb_setup.py:_flush():76] Loading settings from /root/.config/wandb/settings
+2022-10-27 13:49:10,851 INFO    MainThread:12597 [wandb_setup.py:_flush():76] Loading settings from /root/renet/wandb/settings
+2022-10-27 13:49:10,851 INFO    MainThread:12597 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'_require_service': 'True'}
+2022-10-27 13:49:10,851 INFO    MainThread:12597 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program': '/root/renet/train.py'}
+2022-10-27 13:49:10,851 INFO    MainThread:12597 [wandb_init.py:_log_setup():461] Logging user logs to /root/renet/wandb/run-20221027_134910-32wojwe8/logs/debug.log
+2022-10-27 13:49:10,851 INFO    MainThread:12597 [wandb_init.py:_log_setup():462] Logging internal logs to /root/renet/wandb/run-20221027_134910-32wojwe8/logs/debug-internal.log
+2022-10-27 13:49:10,852 INFO    MainThread:12597 [wandb_init.py:init():495] calling init triggers
+2022-10-27 13:49:10,852 INFO    MainThread:12597 [wandb_init.py:init():498] wandb.init called with sweep_config: {}
+config: {'dataset': 'isic', 'data_dir': '/root/autodl-tmp', 'batch': 128, 'temperature': 0.2, 'lamb': 0.25, 'max_epoch': 60, 'lr': 0.1, 'gamma': 0.05, 'milestones': [40, 50], 'save_all': False, 'way': 2, 'shot': 5, 'query': 15, 'val_episode': 200, 'test_episode': 2000, 'self_method': 'scr', 'temperature_attn': 5.0, 'gpu': '0', 'extra_dir': 'your_run', 'seed': 1, 'no_wandb': False, 'num_gpu': 1, 'device_ids': [0], 'save_path': 'checkpoints/isic/5shot-2way/your_run'}
+2022-10-27 13:49:10,852 INFO    MainThread:12597 [wandb_init.py:init():548] starting backend
+2022-10-27 13:49:10,853 INFO    MainThread:12597 [wandb_init.py:init():552] setting up manager
+2022-10-27 13:49:10,857 INFO    MainThread:12597 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-10-27 13:49:10,860 INFO    MainThread:12597 [wandb_init.py:init():558] backend started and connected
+2022-10-27 13:49:10,864 INFO    MainThread:12597 [wandb_init.py:init():636] updated telemetry
+2022-10-27 13:49:10,893 INFO    MainThread:12597 [wandb_init.py:init():667] communicating run to backend with 30 second timeout
+2022-10-27 13:49:11,772 INFO    MainThread:12597 [wandb_run.py:_on_init():1982] communicating current version
+2022-10-27 13:49:12,682 INFO    MainThread:12597 [wandb_run.py:_on_init():1986] got version response upgrade_message: "wandb version 0.13.4 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2022-10-27 13:49:12,682 INFO    MainThread:12597 [wandb_init.py:init():700] starting run threads in backend
+2022-10-27 13:49:13,827 INFO    MainThread:12597 [wandb_run.py:_console_start():1962] atexit reg
+2022-10-27 13:49:13,828 INFO    MainThread:12597 [wandb_run.py:_redirect():1820] redirect: SettingsConsole.WRAP_RAW
+2022-10-27 13:49:13,829 INFO    MainThread:12597 [wandb_run.py:_redirect():1885] Wrapping output streams.
+2022-10-27 13:49:13,829 INFO    MainThread:12597 [wandb_run.py:_redirect():1907] Redirects installed.
+2022-10-27 13:49:13,830 INFO    MainThread:12597 [wandb_init.py:init():732] run started, returning control to user process
+2022-10-27 13:49:30,013 INFO    MainThread:12597 [wandb_watch.py:watch():47] Watching
+2022-10-27 14:24:39,895 WARNING MsgRouterThr:12597 [router.py:message_loop():76] message_loop has been closed

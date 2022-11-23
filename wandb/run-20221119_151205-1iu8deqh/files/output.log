@@ -1,0 +1,676 @@
+
+manual seed: 1
+manual seed: 1
+DataParallel(
+  (module): RENet(
+    (encoder): ResNet(
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): LeakyReLU(negative_slope=0.1)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn3): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+          (downsample): Sequential(
+            (0): Conv2d(3, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): LeakyReLU(negative_slope=0.1)
+          (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn3): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+          (downsample): Sequential(
+            (0): Conv2d(64, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(160, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): LeakyReLU(negative_slope=0.1)
+          (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn3): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+          (downsample): Sequential(
+            (0): Conv2d(160, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(320, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): LeakyReLU(negative_slope=0.1)
+          (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn3): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+          (downsample): Sequential(
+            (0): Conv2d(320, 640, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (fc): Linear(in_features=640, out_features=12, bias=True)
+    (scr_module): Sequential(
+      (0): SelfCorrelationComputation(
+        (unfold): Unfold(kernel_size=(5, 5), dilation=1, padding=2, stride=1)
+        (relu): ReLU(inplace=True)
+      )
+      (1): SCR(
+        (conv1x1_in): Sequential(
+          (0): Conv2d(640, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (conv1): Sequential(
+          (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), bias=False)
+          (1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), bias=False)
+          (1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (conv1x1_out): Sequential(
+          (0): Conv2d(64, 640, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (cca_module): CCA(
+      (conv): Sequential(
+        (0): SepConv4d(
+          (proj): Sequential(
+            (0): Conv2d(1, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv1): Sequential(
+            (0): Conv3d(1, 1, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (1): BatchNorm3d(1, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv2): Sequential(
+            (0): Conv3d(1, 1, kernel_size=(3, 3, 1), stride=(1, 1, 1), padding=(1, 1, 0), bias=False)
+            (1): BatchNorm3d(1, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (1): ReLU(inplace=True)
+        (2): SepConv4d(
+          (proj): Sequential(
+            (0): Conv2d(16, 1, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(1, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv1): Sequential(
+            (0): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (1): BatchNorm3d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv2): Sequential(
+            (0): Conv3d(16, 16, kernel_size=(3, 3, 1), stride=(1, 1, 1), padding=(1, 1, 0), bias=False)
+            (1): BatchNorm3d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+      )
+    )
+    (cca_1x1): Sequential(
+      (0): Conv2d(640, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+    )
+  )
+)
+manual seed: 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo:  1 | avg.loss:5.1562 | avg.acc:42.024 (curr:52.000): 100%|█████████████████████████████████████████████████████████████████████████████| 56/56 [00:31<00:00,  1.76it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo:  1 | avg.loss:1.5188 | avg.acc:[33m[1m39.353[39m[22m (curr:46.667): 100%|███████████████████████████████████████████████████████████████████████████| 200/200 [00:20<00:00,  9.78it/s]
+  0%|                                                                                                                                                        | 0/56 [00:00<?, ?it/s]
+[ log ] *********A better model is found (39.353) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo:  2 | avg.loss:4.4201 | avg.acc:46.571 (curr:50.667): 100%|█████████████████████████████████████████████████████████████████████████████| 56/56 [00:31<00:00,  1.78it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo:  2 | avg.loss:1.4088 | avg.acc:[33m[1m42.053[39m[22m (curr:40.000): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.80it/s]
+  0%|                                                                                                               | 0/56 [00:00<?, ?it/s]
+[ log ] *********A better model is found (42.053) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo:  3 | avg.loss:4.0859 | avg.acc:49.524 (curr:72.000): 100%|████████████████████████████████████| 56/56 [00:32<00:00,  1.72it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo:  3 | avg.loss:1.3779 | avg.acc:[33m[1m43.095[39m[22m (curr:42.667):  96%|████████████████████████████████▊ | 193/200 [00:19<00:00,  9.83it/s]
+[ log ] *********A better model is found (43.187) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+[ val ] epo:  3 | avg.loss:1.3766 | avg.acc:[33m[1m43.187[39m[22m (curr:49.333): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.73it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo:  4 | avg.loss:3.7991 | avg.acc:54.214 (curr:60.000): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.76it/s]
+
+
+
+
+
+
+
+
+
+
+[ val ] epo:  4 | avg.loss:1.3191 | avg.acc:[33m[1m46.105[39m[22m (curr:42.667):  98%|█████████████████████████████████▍| 197/200 [00:20<00:00,  9.75it/s]
+[ log ] *********A better model is found (46.060) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+[ val ] epo:  4 | avg.loss:1.3202 | avg.acc:[33m[1m46.060[39m[22m (curr:44.000): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.75it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo:  5 | avg.loss:3.6630 | avg.acc:55.667 (curr:56.000): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.77it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo:  5 | avg.loss:1.2941 | avg.acc:[33m[1m47.241[39m[22m (curr:42.667):  98%|█████████████████████████████████▏| 195/200 [00:19<00:00,  9.78it/s]
+[ log ] *********A better model is found (47.187) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+[ val ] epo:  5 | avg.loss:1.2954 | avg.acc:[33m[1m47.187[39m[22m (curr:42.667): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.76it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo:  6 | avg.loss:3.3370 | avg.acc:59.786 (curr:53.333): 100%|████████████████████████████████████| 56/56 [00:32<00:00,  1.74it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo:  6 | avg.loss:1.2652 | avg.acc:[33m[1m49.600[39m[22m (curr:52.000): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.76it/s]
+  0%|                                                                                                               | 0/56 [00:00<?, ?it/s]
+[ log ] *********A better model is found (49.600) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo:  7 | avg.loss:3.2618 | avg.acc:62.357 (curr:62.667): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.76it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo:  7 | avg.loss:1.2335 | avg.acc:[33m[1m50.094[39m[22m (curr:46.667):  96%|████████████████████████████████▍ | 191/200 [00:19<00:00,  9.80it/s]
+[ log ] *********A better model is found (50.107) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+[ val ] epo:  7 | avg.loss:1.2329 | avg.acc:[33m[1m50.107[39m[22m (curr:42.667): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.74it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo:  8 | avg.loss:3.0709 | avg.acc:63.500 (curr:80.000): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.78it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo:  8 | avg.loss:1.2224 | avg.acc:[33m[1m49.574[39m[22m (curr:42.667):  94%|███████████████████████████████▉  | 188/200 [00:19<00:01,  9.77it/s]
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+[ val ] epo:  8 | avg.loss:1.2235 | avg.acc:[33m[1m49.580[39m[22m (curr:42.667): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.75it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo:  9 | avg.loss:2.9574 | avg.acc:64.071 (curr:65.333): 100%|████████████████████████████████████| 56/56 [00:32<00:00,  1.74it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo:  9 | avg.loss:1.1968 | avg.acc:[33m[1m51.896[39m[22m (curr:52.000):  96%|████████████████████████████████▊ | 193/200 [00:19<00:00,  9.76it/s]
+[ log ] *********A better model is found (51.807) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+[ val ] epo:  9 | avg.loss:1.1990 | avg.acc:[33m[1m51.807[39m[22m (curr:41.333): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.73it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo: 10 | avg.loss:2.6931 | avg.acc:68.381 (curr:68.000): 100%|████████████████████████████████████| 56/56 [00:32<00:00,  1.75it/s]
+
+
+
+
+
+
+
+
+
+
+[ val ] epo: 10 | avg.loss:1.1660 | avg.acc:[33m[1m53.673[39m[22m (curr:48.000): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.72it/s]
+[ log ] *********A better model is found (53.673) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+[ log ] roughly 0.75 h left
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo: 11 | avg.loss:2.7008 | avg.acc:69.071 (curr:65.333): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.78it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo: 11 | avg.loss:1.1450 | avg.acc:[33m[1m54.323[39m[22m (curr:72.000):  97%|████████████████████████████████▉ | 194/200 [00:19<00:00,  9.78it/s]
+[ log ] *********A better model is found (54.320) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+[ val ] epo: 11 | avg.loss:1.1465 | avg.acc:[33m[1m54.320[39m[22m (curr:48.000): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.76it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo: 12 | avg.loss:2.6695 | avg.acc:69.476 (curr:73.333): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.78it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo: 12 | avg.loss:1.0974 | avg.acc:[33m[1m56.153[39m[22m (curr:52.000): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.77it/s]
+  0%|                                                                                                               | 0/56 [00:00<?, ?it/s]
+[ log ] *********A better model is found (56.153) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo: 13 | avg.loss:2.5336 | avg.acc:71.857 (curr:85.333): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.76it/s]
+
+
+
+
+
+
+
+
+
+
+[ val ] epo: 13 | avg.loss:1.0647 | avg.acc:[33m[1m58.180[39m[22m (curr:60.000): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.73it/s]
+  0%|                                                                                                               | 0/56 [00:00<?, ?it/s]
+[ log ] *********A better model is found (58.180) *********
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo: 14 | avg.loss:2.4457 | avg.acc:72.405 (curr:77.333): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.77it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo: 14 | avg.loss:1.1111 | avg.acc:[33m[1m56.033[39m[22m (curr:56.000): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.73it/s]
+  0%|                                                                                                               | 0/56 [00:00<?, ?it/s]
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo: 15 | avg.loss:2.3003 | avg.acc:73.595 (curr:80.000): 100%|████████████████████████████████████| 56/56 [00:32<00:00,  1.71it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo: 15 | avg.loss:1.1202 | avg.acc:[33m[1m56.413[39m[22m (curr:54.667): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.75it/s]
+  0%|                                                                                                               | 0/56 [00:00<?, ?it/s]
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo: 16 | avg.loss:2.2994 | avg.acc:75.357 (curr:62.667): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.75it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo: 16 | avg.loss:1.1283 | avg.acc:[33m[1m55.420[39m[22m (curr:56.000): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.73it/s]
+  0%|                                                                                                               | 0/56 [00:00<?, ?it/s]
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo: 17 | avg.loss:2.2683 | avg.acc:74.595 (curr:77.333): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.78it/s]
+
+
+
+
+
+
+
+
+
+
+[ val ] epo: 17 | avg.loss:1.0954 | avg.acc:[33m[1m57.860[39m[22m (curr:54.667): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.75it/s]
+  0%|                                                                                                               | 0/56 [00:00<?, ?it/s]
+[ log ] saving @ checkpoints/miniimagenets/5shot-5way/your_run_16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[train] epo: 18 | avg.loss:2.1554 | avg.acc:76.738 (curr:78.667): 100%|████████████████████████████████████| 56/56 [00:31<00:00,  1.77it/s]
+
+
+
+
+
+
+
+
+
+[ val ] epo: 18 | avg.loss:1.0637 | avg.acc:[33m[1m58.200[39m[22m (curr:57.333): 100%|██████████████████████████████████| 200/200 [00:20<00:00,  9.74it/s]
+Traceback (most recent call last):
+  File "/root/renet/train.py", line 141, in <module>
+    model = train_main(args)
+  File "/root/renet/train.py", line 122, in train_main
+    torch.save(dict(params=model.state_dict(), epoch=epoch), os.path.join(args.save_path, 'max_acc.pth'))
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/site-packages/torch/serialization.py", line 369, in save
+    with _open_file_like(f, 'wb') as opened_file:
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'checkpoints/miniimagenets/5shot-5way/your_run_16/max_acc.pth'
+[ log ] *********A better model is found (58.200) *********

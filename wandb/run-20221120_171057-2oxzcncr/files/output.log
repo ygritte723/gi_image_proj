@@ -1,0 +1,177 @@
+manual seed: 1
+manual seed: 1
+  0%|                                                                                                                             | 0/300 [00:01<?, ?it/s]: ception ignored in thread started by
+<bound method Thread._bootstrap of <Thread(QueueFeederThread, started daemon 139850250512128)>>
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/threading.py", line 930, in _bootstrap
+    self._bootstrap_inner()
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/threading.py", line 965, in _bootstrap_inner
+    del _limbo[self]
+KeyError: <Thread(QueueFeederThread, started daemon 139850250512128)>
+DataParallel(
+  (module): RENet(
+    (encoder): ResNet(
+      (layer1): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): LeakyReLU(negative_slope=0.1)
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn3): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+          (downsample): Sequential(
+            (0): Conv2d(3, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+      (layer2): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(64, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): LeakyReLU(negative_slope=0.1)
+          (conv2): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(160, 160, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn3): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+          (downsample): Sequential(
+            (0): Conv2d(64, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+      (layer3): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(160, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): LeakyReLU(negative_slope=0.1)
+          (conv2): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(320, 320, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn3): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+          (downsample): Sequential(
+            (0): Conv2d(160, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+      (layer4): Sequential(
+        (0): BasicBlock(
+          (conv1): Conv2d(320, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): LeakyReLU(negative_slope=0.1)
+          (conv2): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(640, 640, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn3): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (maxpool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+          (downsample): Sequential(
+            (0): Conv2d(320, 640, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+      )
+    )
+    (fc): Linear(in_features=640, out_features=64, bias=True)
+    (scr_module): Sequential(
+      (0): SelfCorrelationComputation(
+        (unfold): Unfold(kernel_size=(5, 5), dilation=1, padding=2, stride=1)
+        (relu): ReLU(inplace=True)
+      )
+      (1): SCR(
+        (conv1x1_in): Sequential(
+          (0): Conv2d(640, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (conv1): Sequential(
+          (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), bias=False)
+          (1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (conv2): Sequential(
+          (0): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), bias=False)
+          (1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+        )
+        (conv1x1_out): Sequential(
+          (0): Conv2d(64, 640, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (cca_module): CCA(
+      (conv): Sequential(
+        (0): SepConv4d(
+          (proj): Sequential(
+            (0): Conv2d(1, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv1): Sequential(
+            (0): Conv3d(1, 1, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (1): BatchNorm3d(1, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv2): Sequential(
+            (0): Conv3d(1, 1, kernel_size=(3, 3, 1), stride=(1, 1, 1), padding=(1, 1, 0), bias=False)
+            (1): BatchNorm3d(1, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+        (1): ReLU(inplace=True)
+        (2): SepConv4d(
+          (proj): Sequential(
+            (0): Conv2d(16, 1, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (1): BatchNorm2d(1, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv1): Sequential(
+            (0): Conv3d(16, 16, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+            (1): BatchNorm3d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (conv2): Sequential(
+            (0): Conv3d(16, 16, kernel_size=(3, 3, 1), stride=(1, 1, 1), padding=(1, 1, 0), bias=False)
+            (1): BatchNorm3d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+          (relu): ReLU(inplace=True)
+        )
+      )
+    )
+    (cca_1x1): Sequential(
+      (0): Conv2d(640, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+    )
+  )
+)
+manual seed: 1
+Traceback (most recent call last):
+  File "/root/renet/train.py", line 145, in <module>
+    model = train_main(args)
+  File "/root/renet/train.py", line 113, in train_main
+    train_loss, train_acc, _ = train(epoch, model, train_loaders, optimizer, args)
+  File "/root/renet/train.py", line 35, in train
+    for i, ((data, train_labels), (data_aux, train_labels_aux)) in enumerate(zip(tqdm_gen, train_loader_aux), 1):
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/site-packages/tqdm/std.py", line 1185, in __iter__
+    for obj in iterable:
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 352, in __iter__
+    return self._get_iterator()
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 294, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 827, in __init__
+    self._reset(loader, first_iter=True)
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 857, in _reset
+    self._try_put_index()
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1102, in _try_put_index
+    self._index_queues[worker_queue_idx].put((self._send_idx, index))
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/multiprocessing/queues.py", line 94, in put
+    self._start_thread()
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/multiprocessing/queues.py", line 179, in _start_thread
+    self._thread.start()
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/threading.py", line 892, in start
+    _start_new_thread(self._bootstrap, ())
+  File "/root/miniconda3/envs/renet_iccv21/lib/python3.9/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 58013) exited unexpectedly with exit code 127. Details are lost due to multiprocessing. Rerunning with num_workers=0 may give better error trace.
