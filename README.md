@@ -22,8 +22,8 @@ A deep learning model for classifying gastrointestinal diseases using endoscopic
 
 ## Installation
 ```bash
-git clone https://github.com/your-github/REFSN.git
-cd REFSN
+git clone https://github.com/ygritte723/gi_image_proj.git
+cd gi_image_proj
 pip install -r requirements.txt
 ```
 ## Usage
