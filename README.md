@@ -6,19 +6,20 @@ A deep learning model for classifying gastrointestinal diseases using endoscopic
 
 ## Features
 - Few-Shot Learning (FSL)
-![FSL](readme/FSLparadigm.png)
+<img src="readme/FSLparadigm.png" alt="FSL" title="FSL" width="400"/>
 
 - Data Augmentation via Task Interpolation
-![task](readme/taskinterpolation.png)
+<img src="readme/taskinterpolation.png" alt="Task" title="Task" width="400"/>
+
 - Relational Embedding
   - Self Corelation Representation
-    ![scr](readme/scr.png)
-
+  <img src="readme/scr.png" alt="scr" title="scr" width="400"/>
+  
   - Cross Corelation Representation
-    ![ccr](readme/ccr.png)
+  <img src="readme/ccr.png" alt="ccr" title="ccr" width="400"/>
 
 - Bi-Level Routing Attention Mechanism
-![biattn](readme/biattn.png)
+<img src="readme/biattn.png" alt="biattn" title="biattn" width="400"/>
 
 ## Installation
 ```bash
