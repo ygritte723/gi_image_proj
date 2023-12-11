@@ -4,7 +4,7 @@
 A deep learning model for classifying gastrointestinal diseases using endoscopic images. It utilizes Few-Shot Learning, data augmentation, relational embedding, and bi-level routing attention to accurately analyze medical images.
 ![arct](readme/arct.png)
 
-## Features
+## Approach
 - Few-Shot Learning (FSL)
 <img src="readme/FSLparadigm.png" alt="FSL" title="FSL" width="400"/>
 
