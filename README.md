@@ -28,8 +28,7 @@ cd gi_image_proj
 pip install -r requirements.txt
 ```
 ## Usage
-Detailed instructions for data preparation, training, and evaluation.
-
+Please refer to the [test.py](test.py), [train.py](train.py), and [scripts](scripts)
 ## Dataset
 Tested on Hyper-Kvasir and Mini-ImageNet datasets.
 
