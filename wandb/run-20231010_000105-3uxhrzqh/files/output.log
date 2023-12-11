@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 68, in <module>
+    model = load_model(model, pre_path)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/common/utils.py", line 85, in load_model
+    pretrained_dict = torch.load(dir)['params']
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/serialization.py", line 791, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/serialization.py", line 271, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/serialization.py", line 252, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/miniimagenet/5shot-2way/test222/max_acc.pth'
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 68, in <module>
+    model = load_model(model, pre_path)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/common/utils.py", line 85, in load_model
+    pretrained_dict = torch.load(dir)['params']
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/serialization.py", line 791, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/serialization.py", line 271, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/serialization.py", line 252, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '/jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/miniimagenet/5shot-2way/test222/max_acc.pth'

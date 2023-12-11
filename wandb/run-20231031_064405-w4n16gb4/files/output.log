@@ -1,0 +1,17 @@
+loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth
+torch.Size([1, 640, 5, 5]) torch.Size([1, 640, 5, 5])
+torch.Size([1, 1, 5, 5, 5, 5]) torch.Size([1, 1, 5, 5, 5, 5])
+attn:  torch.Size([1, 1, 84, 84])
+img_size:  torch.Size([84, 84, 3])
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 106, in <module>
+    attn_heatmap(img_s_bs, img_q_bs, attn_s, attn_q)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 20, in attn_heatmap
+    img_s_heatmap = show_heatmap_on_image(img_s, attn_s_qs_normalized)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 30, in show_heatmap_on_image
+    heatmap = cv2.applyColorMap(np.uint8(255 * attn), cv2.COLORMAP_JET)
+cv2.error: OpenCV(4.8.1) /io/opencv/modules/imgproc/src/colormap.cpp:738: error: (-2:Unspecified error) in function 'void cv::colormap::ColorMap::operator()(cv::InputArray, cv::OutputArray) const'
+> Not supported (expected: 'src.dims == 2'), where
+>     'src.dims' is 4
+> must be equal to
+>     '2' is 2

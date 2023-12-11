@@ -1,0 +1,10 @@
+
+loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 79, in <module>
+    attn_s, attn_q = model((feature_img_s, feature_img_q))
+NameError: name 'torch' is not defined
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 79, in <module>
+    attn_s, attn_q = model((feature_img_s, feature_img_q))
+NameError: name 'torch' is not defined

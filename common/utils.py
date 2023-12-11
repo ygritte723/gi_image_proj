@@ -19,6 +19,7 @@ def setup_run(arg_mode='train'):
     ensure_path(args.save_path)
 
     if not args.no_wandb:
+        wandb.login(key='425c813e4ad3283798084d341b069aad7184735b')
         wandb.init(project=f'renet-{args.dataset}-{args.way}w{args.shot}s',
                    config=args,
                    save_code=True,
@@ -138,9 +139,9 @@ def parse_args(arg_mode):
     parser = argparse.ArgumentParser(description='Relational Embedding for Few-Shot Classification (ICCV 2021)')
 
     ''' about dataset '''
-    parser.add_argument('-dataset', type=str, default='miniimagenet',
-                        choices=['miniimagenet', 'miniimagenets', 'cub', 'tieredimagenet', 'cifar_fs', 'isic'])
-    parser.add_argument('-data_dir', default='/root/autodl-tmp', help='dir of datasets')
+    parser.add_argument('-dataset', type=str, default='isic',
+                        choices=['miniimagenet', 'miniimagenets', 'cub', 'tieredimagenet', 'cifar_fs', 'isic','hyperkvasir'])
+    parser.add_argument('-data_dir', default='/jet/home/lisun/work/xinliu/images/fewshot', help='dir of datasets')
 
     ''' about training specs '''
     parser.add_argument('-batch', type=int, default=128, help='auxiliary batch size')
@@ -155,7 +156,7 @@ def parse_args(arg_mode):
     parser.add_argument('-save_all', action='store_true', help='save models on each epoch')
 
     ''' about few-shot episodes '''
-    parser.add_argument('-way', type=int, default=5, metavar='N', help='number of few-shot classes')
+    parser.add_argument('-way', type=int, default=2, metavar='N', help='number of few-shot classes')
     parser.add_argument('-shot', type=int, default=5, metavar='K', help='number of shots')
     parser.add_argument('-query', type=int, default=15, help='number of query image per class')
     parser.add_argument('-val_episode', type=int, default=200, help='number of validation episode')
@@ -167,11 +168,21 @@ def parse_args(arg_mode):
     ''' about CCA '''
     parser.add_argument('-temperature_attn', type=float, default=5.0, metavar='gamma', help='temperature for softmax in computing cross-attention')
 
+    ''' about feature extractor'''
+    parser.add_argument('-feature', type=str, default='resnet12', choices=['resnet12','conv4','transformer'])
+
+    ''' about MLTI '''
+    parser.add_argument('-mix', type=bool, default=True, help='use MLTI')
+    
+    ''' about BLRA '''
+    parser.add_argument('-blra', type=bool, default=True, help='use BLRA')
+  
     ''' about env '''
     parser.add_argument('-gpu', default='0', help='the GPU ids e.g. \"0\", \"0,1\", \"0,1,2\", etc')
     parser.add_argument('-extra_dir', type=str, default='test222', help='extra dir name added to checkpoint dir')
     parser.add_argument('-seed', type=int, default=1, help='random seed')
     parser.add_argument('-no_wandb', action='store_true', help='not plotting learning curve on wandb',
-                        default=arg_mode == 'test')  # train: enable logging / test: disable logging
+                        default=arg_mode == 'train')  # train: enable logging / test: disable logging
+    parser.add_argument('-resume', type=str, default='', help='resume from this checkpoint')
     args = parser.parse_args()
     return args

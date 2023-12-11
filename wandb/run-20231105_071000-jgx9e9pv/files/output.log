@@ -1,0 +1,7 @@
+loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth
+torch.Size([1, 640, 32, 32]) torch.Size([1, 640, 32, 32])
+torch.Size([1, 1, 32, 32, 32, 32]) torch.Size([1, 1, 32, 32, 32, 32])
+feat:  torch.Size([512, 512])
+attn:  torch.Size([512, 512])
+img_size:  torch.Size([512, 512, 3])
+>>>>>>>>>>>>>>>>> finish

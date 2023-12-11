@@ -3,24 +3,40 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from models.resnet import ResNet
+from models.conv import Conv
+from models.transformer import Transformer
 from models.cca import CCA
 from models.scr import SCR, SelfCorrelationComputation
 from models.others.se import SqueezeExcitation
 from models.others.lsa import LocalSelfAttention
 from models.others.nlsa import NonLocalSelfAttention
 from models.others.sce import SpatialContextEncoder
+from models.bra_legacy import BiLevelRoutingAttention
 
 
 class RENet(nn.Module):
 
-    def __init__(self, args, mode=None):
+    def __init__(self, args, mode=None, dim=10, drop_path=0., layer_scale_init_value=-1,
+                       num_heads=2, n_win=5, qk_dim=None, qk_scale=None,
+                       kv_per_win=4, kv_downsample_ratio=4, kv_downsample_kernel=None, kv_downsample_mode='ada_avgpool',
+                       topk=4, param_attention="qkvo", param_routing=False, diff_routing=False, soft_routing=False, mlp_ratio=4, mlp_dwconv=False,
+                       side_dwconv=5, before_attn_dwconv=3, pre_norm=True, auto_pad=False):
         super().__init__()
         self.mode = mode
         self.args = args
 
-        self.encoder = ResNet(args=args)
+        if self.args.feature == 'resnet12':
+            self.encoder = ResNet()
+        elif self.args.feature == 'conv4':
+            self.encoder = Conv()
+        elif self.args.feature == 'transformer':
+            self.encoder =  Transformer()
+
+        #self.encoder = ResNet(args=args)
         self.encoder_dim = 640
         self.fc = nn.Linear(self.encoder_dim, self.args.num_class)
+        self.m = nn.Linear(25, 84*84)
+
 
         self.scr_module = self._make_scr_layer(planes=[640, 64, 64, 64, 640])
         self.cca_module = CCA(kernel_sizes=[3, 3], planes=[16, 1])
@@ -30,6 +46,14 @@ class RENet(nn.Module):
             nn.BatchNorm2d(64),
             nn.ReLU()
         )
+        # add BLRA to save both computation and memory
+        self.blra = BiLevelRoutingAttention(dim=dim, num_heads=num_heads, n_win=n_win, qk_dim=qk_dim,
+                                        qk_scale=qk_scale, kv_per_win=kv_per_win, kv_downsample_ratio=kv_downsample_ratio,
+                                        kv_downsample_kernel=kv_downsample_kernel, kv_downsample_mode=kv_downsample_mode,
+                                        topk=topk, param_attention=param_attention, param_routing=param_routing,
+                                        diff_routing=diff_routing, soft_routing=soft_routing, side_dwconv=side_dwconv,
+                                        auto_pad=auto_pad)
+
 
     def _make_scr_layer(self, planes):
         stride, kernel_size, padding = (1, 1, 1), (5, 5), 2
@@ -63,6 +87,12 @@ class RENet(nn.Module):
         elif self.mode == 'cca':
             spt, qry = input
             return self.cca(spt, qry)
+        elif self.mode == 'cca_blra':
+            spt, qry = input
+            return self.cca_blra(spt, qry)
+        elif self.mode == 'ccaother':
+            spt, qry = input
+            return self.ccaother(spt, qry)            
         else:
             raise ValueError('Unknown mode')
 
@@ -103,6 +133,121 @@ class RENet(nn.Module):
         # suming up matching scores
         attn_s = corr4d_s.sum(dim=[4, 5])
         attn_q = corr4d_q.sum(dim=[2, 3])
+
+        # applying attention
+        # attention computation A * F -> s,q
+        spt_attended = attn_s.unsqueeze(2) * spt.unsqueeze(0)
+        qry_attended = attn_q.unsqueeze(2) * qry.unsqueeze(1)
+
+        # averaging embeddings for k > 1 shots
+        if self.args.shot > 1:
+            spt_attended = spt_attended.view(num_qry, self.args.shot, self.args.way, *spt_attended.shape[2:])
+            qry_attended = qry_attended.view(num_qry, self.args.shot, self.args.way, *qry_attended.shape[2:])
+            spt_attended = spt_attended.mean(dim=1)
+            qry_attended = qry_attended.mean(dim=1)
+
+        # In the main paper, we present averaging in Eq.(4) and summation in Eq.(5).
+        # In the implementation, the order is reversed, however, those two ways become eventually the same anyway :)
+        spt_attended_pooled = spt_attended.mean(dim=[-1, -2])
+        qry_attended_pooled = qry_attended.mean(dim=[-1, -2])
+        # z for Loss_anchor
+        qry_pooled = qry.mean(dim=[-1, -2])
+
+        similarity_matrix = F.cosine_similarity(spt_attended_pooled, qry_attended_pooled, dim=-1)
+
+        if self.training:
+            # Loss_metric & loss_anchor
+            return similarity_matrix / self.args.temperature, self.fc(qry_pooled)
+        else:
+            return similarity_matrix / self.args.temperature
+
+    def ccaother(self, spt, qry):
+        # shifting channel activations by the channel mean
+        spt = self.normalize_feature(spt)
+        qry = self.normalize_feature(qry)
+        print(spt.size(), qry.size())
+
+        # (S * C * Hs * Ws, Q * C * Hq * Wq) -> Q * S * Hs * Ws * Hq * Wq
+        corr4d = self.get_4d_correlation_map(spt, qry)
+        num_qry, way, H_s, W_s, H_q, W_q = corr4d.size()
+
+        # corr4d refinement
+        corr4d = self.cca_module(corr4d.view(-1, 1, H_s, W_s, H_q, W_q))
+        corr4d_s = corr4d.view(num_qry, way, H_s * W_s, H_q, W_q)
+        corr4d_q = corr4d.view(num_qry, way, H_s, W_s, H_q * W_q)
+
+        # normalizing the entities for each side to be zero-mean and unit-variance to stabilize training
+        corr4d_s = self.gaussian_normalize(corr4d_s, dim=2)
+        corr4d_q = self.gaussian_normalize(corr4d_q, dim=4)
+
+        # applying softmax for each side
+        corr4d_s = F.softmax(corr4d_s / self.args.temperature_attn, dim=2)
+        corr4d_s = corr4d_s.view(num_qry, way, H_s, W_s, H_q, W_q)
+        corr4d_q = F.softmax(corr4d_q / self.args.temperature_attn, dim=4)
+        corr4d_q = corr4d_q.view(num_qry, way, H_s, W_s, H_q, W_q)
+        print(corr4d_s.size(), corr4d_q.size())
+
+        # suming up matching scores
+        attn_s = corr4d_s.sum(dim=[4, 5])
+        attn_q = corr4d_q.sum(dim=[2, 3])
+        #attn_s = attn_s.view(-1)
+        #attn_q = attn_q.view(-1)
+        #fc = self.m
+        #attn_s = fc(attn_s)
+        #attn_q = fc(attn_q)
+        #attn_s = attn_s.view(84,84)
+        #attn_q = attn_q.view(84,84)
+        
+        #attn_s = corr4d_s.view(84,84)
+        #attn_q = corr4d_q.view(84,84)
+        
+
+        # # applying attention
+        # spt_attended = attn_s.unsqueeze(2) * spt.unsqueeze(0)
+        # qry_attended = attn_q.unsqueeze(2) * qry.unsqueeze(1)
+
+        return attn_s, attn_q
+
+    def cca_blra(self, spt, qry):
+        # only in dimension 0 input of size 1 removed
+        spt = spt.squeeze(0)
+
+        # shifting channel activations by the channel mean
+        spt = self.normalize_feature(spt)
+        qry = self.normalize_feature(qry)
+
+        # (S * C * Hs * Ws, Q * C * Hq * Wq) -> Q * S * Hs * Ws * Hq * Wq
+        corr4d = self.get_4d_correlation_map(spt, qry)
+        num_qry, way, H_s, W_s, H_q, W_q = corr4d.size()
+
+        # corr4d refinement
+        corr4d = self.cca_module(corr4d.view(-1, 1, H_s, W_s, H_q, W_q))
+        corr4d_s = corr4d.view(num_qry, way, H_s * W_s, H_q, W_q)
+        corr4d_q = corr4d.view(num_qry, way, H_s, W_s, H_q * W_q)
+
+        # normalizing the entities for each side to be zero-mean and unit-variance to stabilize training
+        corr4d_s = self.gaussian_normalize(corr4d_s, dim=2)
+        corr4d_q = self.gaussian_normalize(corr4d_q, dim=4)
+
+        # applying softmax for each side
+        #corr4d_s = F.softmax(corr4d_s / self.args.temperature_attn, dim=2)
+        corr4d_s = corr4d_s.view(num_qry, way, H_s, W_s, H_q, W_q)
+        #corr4d_q = F.softmax(corr4d_q / self.args.temperature_attn, dim=4)
+        corr4d_q = corr4d_q.view(num_qry, way, H_s, W_s, H_q, W_q)        
+
+        # suming up matching scores
+
+        attn_s = corr4d_s.sum(dim=[4, 5])
+        attn_q = corr4d_q.sum(dim=[2, 3])
+        
+        #(num_qry,way,H_s,W_s) -> (num_qry,H_s,W_s,way)
+        #(num_qry,way,H_q,W_q) -> (num_qry,H_q,W_q,way)
+        attn_s = self.blra(attn_s.view(num_qry, H_s, W_s, way))
+        attn_q = self.blra(attn_q.view(num_qry, H_q, W_q, way))
+        
+        attn_s = attn_s.view(num_qry, way, H_s, W_s)
+        attn_q = attn_q.view(num_qry, way, H_q, W_q)     
+        
 
         # applying attention
         # attention computation A * F -> s,q

@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 99, in <module>
+    model = load_model(model, pre_path)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/common/utils.py", line 101, in load_model
+    model.load_state_dict(model_dict)
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/nn/modules/module.py", line 2041, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for RENet:
+	size mismatch for fc.weight: copying a param with shape torch.Size([4, 640]) from checkpoint, the shape in current model is torch.Size([64, 640]).
+	size mismatch for fc.bias: copying a param with shape torch.Size([4]) from checkpoint, the shape in current model is torch.Size([64]).
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 99, in <module>
+    model = load_model(model, pre_path)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/common/utils.py", line 101, in load_model
+    model.load_state_dict(model_dict)
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/nn/modules/module.py", line 2041, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for RENet:
+	size mismatch for fc.weight: copying a param with shape torch.Size([4, 640]) from checkpoint, the shape in current model is torch.Size([64, 640]).
+	size mismatch for fc.bias: copying a param with shape torch.Size([4]) from checkpoint, the shape in current model is torch.Size([64]).
+loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth

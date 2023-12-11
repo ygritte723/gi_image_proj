@@ -1,0 +1,11 @@
+
+loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth
+Exception ignored in: <function BaseCAM.__del__ at 0x14e3ce0b1f70>
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/pytorch_grad_cam/base_cam.py", line 192, in __del__
+    self.activations_and_grads.release()
+AttributeError: 'GradCAM' object has no attribute 'activations_and_grads'
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/gchtmp.py", line 121, in <module>
+    scacam = GradCAM(model=model, use_cuda=True)
+TypeError: __init__() missing 1 required positional argument: 'target_layers'

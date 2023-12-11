@@ -1,5 +1,5 @@
 import torch.nn as nn
-
+import torch
 # This ResNet network was designed following the practice of the following papers:
 # TADAM: Task dependent adaptive metric for improved few-shot learning (Oreshkin et al., in NIPS 2018) and
 # A Simple Neural Attentive Meta-Learner (Mishra et al., in ICLR 2018).
@@ -52,11 +52,11 @@ class BasicBlock(nn.Module):
 
 class ResNet(nn.Module):
 
-    def __init__(self, args, block=BasicBlock):
+    def __init__(self, block=BasicBlock):
         self.inplanes = 3
         super(ResNet, self).__init__()
 
-        self.args = args
+        #self.args = args
         self.layer1 = self._make_layer(block, 64, stride=2)
         self.layer2 = self._make_layer(block, 160, stride=2)
         self.layer3 = self._make_layer(block, 320, stride=2)
@@ -85,6 +85,7 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, x):
+        #print(x.shape)
         x = self.layer1(x)
 
         x = self.layer2(x)
@@ -92,5 +93,14 @@ class ResNet(nn.Module):
         x = self.layer3(x)
 
         x = self.layer4(x)
+        #print(x.shape)
 
         return x
+        
+        
+        
+        
+#model = ResNet()
+#img = torch.rand((64,3,84,84))
+#print(model(img))
+#print(model)

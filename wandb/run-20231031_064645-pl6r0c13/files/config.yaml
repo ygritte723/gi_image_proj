@@ -1,0 +1,118 @@
+wandb_version: 1
+
+dataset:
+  desc: null
+  value: isic
+data_dir:
+  desc: null
+  value: /jet/home/lisun/work/xinliu/images/fewshot
+batch:
+  desc: null
+  value: 128
+temperature:
+  desc: null
+  value: 0.2
+lamb:
+  desc: null
+  value: 0.25
+max_epoch:
+  desc: null
+  value: 80
+lr:
+  desc: null
+  value: 0.1
+gamma:
+  desc: null
+  value: 0.05
+milestones:
+  desc: null
+  value:
+  - 60
+  - 70
+save_all:
+  desc: null
+  value: false
+way:
+  desc: null
+  value: 2
+shot:
+  desc: null
+  value: 5
+query:
+  desc: null
+  value: 15
+val_episode:
+  desc: null
+  value: 200
+test_episode:
+  desc: null
+  value: 2000
+self_method:
+  desc: null
+  value: scr
+temperature_attn:
+  desc: null
+  value: 5.0
+feature:
+  desc: null
+  value: resnet12
+mix:
+  desc: null
+  value: true
+blra:
+  desc: null
+  value: true
+gpu:
+  desc: null
+  value: '0'
+extra_dir:
+  desc: null
+  value: test222
+seed:
+  desc: null
+  value: 1
+no_wandb:
+  desc: null
+  value: false
+resume:
+  desc: null
+  value: ''
+num_gpu:
+  desc: null
+  value: 1
+device_ids:
+  desc: null
+  value:
+  - 0
+save_path:
+  desc: null
+  value: checkpoints/isic/5shot-2way/test222
+_wandb:
+  desc: null
+  value:
+    code_path: code/htpm.py
+    python_version: 3.9.6
+    cli_version: 0.15.12
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: true
+    start_time: 1698749205.23509
+    t:
+      1:
+      - 1
+      - 41
+      - 55
+      2:
+      - 1
+      - 41
+      - 55
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.9.6
+      5: 0.15.12
+      8:
+      - 2
+      - 5
+      13: linux-x86_64

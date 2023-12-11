@@ -9,11 +9,13 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader
 
 from common.meter import Meter
-from common.utils import detect_grad_nan, compute_accuracy, set_seed, setup_run
+from common.utils import detect_grad_nan, compute_accuracy, set_seed, setup_run, load_model
 from models.dataloader.samplers import CategoriesSampler
 from models.dataloader.data_utils import dataset_builder
 from models.renet import RENet
 from test import test_main, evaluate
+
+from models.mlti import cross_mix
 
 
 def train(epoch, model, loader, optimizer, args=None):
@@ -30,20 +32,38 @@ def train(epoch, model, loader, optimizer, args=None):
 
     k = args.way * args.shot
     tqdm_gen = tqdm.tqdm(train_loader)
+    #l =  list(zip(train_loader, train_loader_aux))
 
     # Begin at 1
     for i, ((data, train_labels), (data_aux, train_labels_aux)) in enumerate(zip(tqdm_gen, train_loader_aux), 1):
+        #print('i: '+ str(i))
 
         data, train_labels = data.cuda(), train_labels.cuda()
         data_aux, train_labels_aux = data_aux.cuda(), train_labels_aux.cuda()
+        
+        # Add MLTI
+        if args.mix:
+        # Get data and labels from the next batch 
+            if i+1 < len(tqdm_gen):
+                second_id = (i + 1) % len(tqdm_gen)
+                ((data_sec , train_labels_sec), (data_aux_sec, train_labels_aux_sec)) = next(zip(train_loader, train_loader_aux), 1)
+                data_sec , train_labels_sec = data_sec.cuda(), train_labels_sec.cuda()
+                data_aux_sec , train_labels_aux_sec = data_aux_sec.cuda(), train_labels_aux_sec.cuda()
+                data, data_aux = cross_mix(data, data_aux, data_sec, data_aux_sec)
+                #print('second id: '+ str(second_id))
 
-        # Forward images (3, 84, 84) -> (C, H, W) 
+
+        # Forward images (3, 84, 84) -> (C, H, W) (640,5,5)
         model.module.mode = 'encoder'
         data = model(data)
         data_aux = model(data_aux)  # I prefer to separate feed-forwarding data and data_aux due to BN
 
+        
         # loss for batch
-        model.module.mode = 'cca'
+        if args.blra:
+            model.module.mode = 'cca_blra'
+        else:
+            model.module.mode = 'cca'
         # k = way*shot
         data_shot, data_query = data[:k], data[k:]
         # cca: data_shot vs data_query
@@ -59,6 +79,7 @@ def train(epoch, model, loader, optimizer, args=None):
 
         # lambda
         loss = args.lamb * epi_loss + loss_aux
+        #print('loss: '+str(loss))
         
         acc = compute_accuracy(logits, label)
 
@@ -68,7 +89,7 @@ def train(epoch, model, loader, optimizer, args=None):
 
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 2.0)
-        detect_grad_nan(model)
+        #detect_grad_nan(model)
         optimizer.step()
         optimizer.zero_grad()
 
@@ -96,6 +117,9 @@ def train_main(args):
     set_seed(args.seed)
     model = RENet(args).cuda()
     model = nn.DataParallel(model, device_ids=args.device_ids)
+    
+    if args.resume != '':
+        model = load_model(model,args.resume)
 
     if not args.no_wandb:
         wandb.watch(model)

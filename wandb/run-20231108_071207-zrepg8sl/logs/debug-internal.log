@@ -1,0 +1,203 @@
+2023-11-08 07:12:07,645 INFO    StreamThr :22253 [internal.py:wandb_internal():86] W&B internal server running at pid: 22253, started at: 2023-11-08 07:12:07.644076
+2023-11-08 07:12:07,648 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: status
+2023-11-08 07:12:07,649 INFO    WriterThread:22253 [datastore.py:open_for_write():85] open: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/run-zrepg8sl.wandb
+2023-11-08 07:12:07,653 DEBUG   SenderThread:22253 [sender.py:send():380] send: header
+2023-11-08 07:12:07,679 DEBUG   SenderThread:22253 [sender.py:send():380] send: run
+2023-11-08 07:12:07,961 INFO    SenderThread:22253 [dir_watcher.py:__init__():211] watching files in: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files
+2023-11-08 07:12:07,961 INFO    SenderThread:22253 [sender.py:_start_run_threads():1122] run started: zrepg8sl with start time 1699445527.644326
+2023-11-08 07:12:07,972 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: check_version
+2023-11-08 07:12:07,973 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: check_version
+2023-11-08 07:12:08,049 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: run_start
+2023-11-08 07:12:08,053 DEBUG   HandlerThread:22253 [system_info.py:__init__():32] System info init
+2023-11-08 07:12:08,053 DEBUG   HandlerThread:22253 [system_info.py:__init__():47] System info init done
+2023-11-08 07:12:08,053 INFO    HandlerThread:22253 [system_monitor.py:start():194] Starting system monitor
+2023-11-08 07:12:08,053 INFO    SystemMonitor:22253 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-11-08 07:12:08,053 INFO    HandlerThread:22253 [system_monitor.py:probe():214] Collecting system info
+2023-11-08 07:12:08,054 INFO    SystemMonitor:22253 [interfaces.py:start():190] Started cpu monitoring
+2023-11-08 07:12:08,054 INFO    SystemMonitor:22253 [interfaces.py:start():190] Started disk monitoring
+2023-11-08 07:12:08,055 INFO    SystemMonitor:22253 [interfaces.py:start():190] Started gpu monitoring
+2023-11-08 07:12:08,056 INFO    SystemMonitor:22253 [interfaces.py:start():190] Started memory monitoring
+2023-11-08 07:12:08,057 INFO    SystemMonitor:22253 [interfaces.py:start():190] Started network monitoring
+2023-11-08 07:12:08,447 DEBUG   HandlerThread:22253 [system_info.py:probe():196] Probing system
+2023-11-08 07:12:08,448 DEBUG   HandlerThread:22253 [system_info.py:_probe_git():181] Probing git
+2023-11-08 07:12:08,465 DEBUG   HandlerThread:22253 [system_info.py:_probe_git():189] Probing git done
+2023-11-08 07:12:08,466 DEBUG   HandlerThread:22253 [system_info.py:probe():244] Probing system done
+2023-11-08 07:12:08,466 DEBUG   HandlerThread:22253 [system_monitor.py:probe():223] {'os': 'Linux-4.18.0-193.28.1.el8_2.x86_64-x86_64-with-glibc2.28', 'python': '3.9.6', 'heartbeatAt': '2023-11-08T12:12:08.447952', 'startedAt': '2023-11-08T12:12:07.634907', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/gchtmp.py', 'codePathLocal': 'gchtmp.py', 'codePath': 'gchtmp.py', 'git': {'remote': 'https://github.com/ygritte723/Renet-pytorch.git', 'commit': '3797c38039066c52db9307eb580a809e7afd549e'}, 'email': None, 'root': '/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI', 'host': 'dv001.ib.bridges2.psc.edu', 'username': 'lisun', 'executable': '/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/bin/python', 'cpu_count': 32, 'cpu_count_logical': 32, 'cpu_freq': {'current': 1933.4939375000001, 'min': 1500.0, 'max': 3000.0}, 'cpu_freq_per_core': [{'current': 1818.779, 'min': 1500.0, 'max': 3000.0}, {'current': 1810.214, 'min': 1500.0, 'max': 3000.0}, {'current': 1826.718, 'min': 1500.0, 'max': 3000.0}, {'current': 2190.894, 'min': 1500.0, 'max': 3000.0}, {'current': 1815.156, 'min': 1500.0, 'max': 3000.0}, {'current': 1798.307, 'min': 1500.0, 'max': 3000.0}, {'current': 1797.339, 'min': 1500.0, 'max': 3000.0}, {'current': 1797.382, 'min': 1500.0, 'max': 3000.0}, {'current': 1799.286, 'min': 1500.0, 'max': 3000.0}, {'current': 2072.621, 'min': 1500.0, 'max': 3000.0}, {'current': 1798.907, 'min': 1500.0, 'max': 3000.0}, {'current': 1799.353, 'min': 1500.0, 'max': 3000.0}, {'current': 1798.993, 'min': 1500.0, 'max': 3000.0}, {'current': 1796.926, 'min': 1500.0, 'max': 3000.0}, {'current': 1799.271, 'min': 1500.0, 'max': 3000.0}, {'current': 1797.056, 'min': 1500.0, 'max': 3000.0}, {'current': 1798.431, 'min': 1500.0, 'max': 3000.0}, {'current': 1799.282, 'min': 1500.0, 'max': 3000.0}, {'current': 2308.252, 'min': 1500.0, 'max': 3000.0}, {'current': 1798.587, 'min': 1500.0, 'max': 3000.0}, {'current': 1799.143, 'min': 1500.0, 'max': 3000.0}, {'current': 1798.275, 'min': 1500.0, 'max': 3000.0}, {'current': 1799.691, 'min': 1500.0, 'max': 3000.0}, {'current': 1799.442, 'min': 1500.0, 'max': 3000.0}, {'current': 1768.905, 'min': 1500.0, 'max': 3000.0}, {'current': 1632.549, 'min': 1500.0, 'max': 3000.0}, {'current': 1796.968, 'min': 1500.0, 'max': 3000.0}, {'current': 1640.895, 'min': 1500.0, 'max': 3000.0}, {'current': 1628.0, 'min': 1500.0, 'max': 3000.0}, {'current': 1798.898, 'min': 1500.0, 'max': 3000.0}, {'current': 1798.218, 'min': 1500.0, 'max': 3000.0}, {'current': 1798.024, 'min': 1500.0, 'max': 3000.0}], 'disk': {'/': {'total': 294.29180908203125, 'used': 16.735889434814453}}, 'gpu': 'Quadro RTX 5000', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro RTX 5000', 'memory_total': 17179869184}], 'memory': {'total': 251.75424194335938}}
+2023-11-08 07:12:08,466 INFO    HandlerThread:22253 [system_monitor.py:probe():224] Finished collecting system info
+2023-11-08 07:12:08,466 INFO    HandlerThread:22253 [system_monitor.py:probe():227] Publishing system info
+2023-11-08 07:12:08,466 DEBUG   HandlerThread:22253 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-11-08 07:12:08,467 DEBUG   HandlerThread:22253 [system_info.py:_save_pip():68] Saving pip packages done
+2023-11-08 07:12:08,467 DEBUG   HandlerThread:22253 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-11-08 07:12:08,964 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_created():271] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/conda-environment.yaml
+2023-11-08 07:12:08,964 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_created():271] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/requirements.txt
+2023-11-08 07:12:12,656 DEBUG   HandlerThread:22253 [system_info.py:_save_conda():87] Saving conda packages done
+2023-11-08 07:12:12,657 DEBUG   HandlerThread:22253 [system_info.py:_save_code():90] Saving code
+2023-11-08 07:12:12,665 DEBUG   HandlerThread:22253 [system_info.py:_save_code():111] Saving code done
+2023-11-08 07:12:12,665 DEBUG   HandlerThread:22253 [system_info.py:_save_patches():128] Saving git patches
+2023-11-08 07:12:12,735 DEBUG   HandlerThread:22253 [system_info.py:_save_patches():170] Saving git patches done
+2023-11-08 07:12:12,737 INFO    HandlerThread:22253 [system_monitor.py:probe():229] Finished publishing system info
+2023-11-08 07:12:12,740 DEBUG   SenderThread:22253 [sender.py:send():380] send: files
+2023-11-08 07:12:12,740 INFO    SenderThread:22253 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-11-08 07:12:12,740 INFO    SenderThread:22253 [sender.py:_save_file():1378] saving file code/gchtmp.py with policy now
+2023-11-08 07:12:12,741 INFO    SenderThread:22253 [sender.py:_save_file():1378] saving file diff.patch with policy now
+2023-11-08 07:12:12,741 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 07:12:12,746 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 07:12:12,746 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 07:12:12,746 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 07:12:12,966 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_modified():288] file/dir modified: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/conda-environment.yaml
+2023-11-08 07:12:12,966 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_created():271] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/diff.patch
+2023-11-08 07:12:12,966 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_created():271] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/wandb-metadata.json
+2023-11-08 07:12:12,966 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_created():271] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/code/gchtmp.py
+2023-11-08 07:12:12,966 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_created():271] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/code
+2023-11-08 07:12:12,980 DEBUG   SenderThread:22253 [sender.py:send():380] send: telemetry
+2023-11-08 07:12:12,981 DEBUG   SenderThread:22253 [sender.py:send():380] send: exit
+2023-11-08 07:12:12,981 INFO    SenderThread:22253 [sender.py:send_exit():585] handling exit code: 1
+2023-11-08 07:12:12,982 INFO    SenderThread:22253 [sender.py:send_exit():587] handling runtime: 4
+2023-11-08 07:12:12,985 INFO    SenderThread:22253 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-08 07:12:12,986 INFO    SenderThread:22253 [sender.py:send_exit():593] send defer
+2023-11-08 07:12:12,986 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:12,986 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 0
+2023-11-08 07:12:12,986 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:12,986 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 0
+2023-11-08 07:12:12,986 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 1
+2023-11-08 07:12:12,986 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:12,986 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 1
+2023-11-08 07:12:12,986 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:12,986 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 1
+2023-11-08 07:12:12,986 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 2
+2023-11-08 07:12:12,987 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:12,987 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 2
+2023-11-08 07:12:12,987 INFO    HandlerThread:22253 [system_monitor.py:finish():203] Stopping system monitor
+2023-11-08 07:12:12,987 DEBUG   SystemMonitor:22253 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-11-08 07:12:12,987 DEBUG   SystemMonitor:22253 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-11-08 07:12:12,987 INFO    HandlerThread:22253 [interfaces.py:finish():202] Joined cpu monitor
+2023-11-08 07:12:12,991 DEBUG   SystemMonitor:22253 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-11-08 07:12:12,991 INFO    HandlerThread:22253 [interfaces.py:finish():202] Joined disk monitor
+2023-11-08 07:12:13,040 INFO    HandlerThread:22253 [interfaces.py:finish():202] Joined gpu monitor
+2023-11-08 07:12:13,040 INFO    HandlerThread:22253 [interfaces.py:finish():202] Joined memory monitor
+2023-11-08 07:12:13,040 INFO    HandlerThread:22253 [interfaces.py:finish():202] Joined network monitor
+2023-11-08 07:12:13,041 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:13,041 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 2
+2023-11-08 07:12:13,041 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 3
+2023-11-08 07:12:13,041 DEBUG   SenderThread:22253 [sender.py:send():380] send: stats
+2023-11-08 07:12:13,041 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:13,041 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 3
+2023-11-08 07:12:13,042 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:13,042 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 3
+2023-11-08 07:12:13,042 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 4
+2023-11-08 07:12:13,042 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:13,042 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 4
+2023-11-08 07:12:13,042 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:13,042 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 4
+2023-11-08 07:12:13,042 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 5
+2023-11-08 07:12:13,042 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:13,042 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 5
+2023-11-08 07:12:13,043 DEBUG   SenderThread:22253 [sender.py:send():380] send: summary
+2023-11-08 07:12:13,043 INFO    SenderThread:22253 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-08 07:12:13,044 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:13,044 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 5
+2023-11-08 07:12:13,044 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 6
+2023-11-08 07:12:13,044 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:13,044 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 6
+2023-11-08 07:12:13,044 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:13,044 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 6
+2023-11-08 07:12:13,049 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 07:12:13,052 INFO    wandb-upload_2:22253 [upload_job.py:push():131] Uploaded file /tmp/tmpid_7ombrwandb/dzuocu6x-diff.patch
+2023-11-08 07:12:13,055 INFO    wandb-upload_0:22253 [upload_job.py:push():131] Uploaded file /tmp/tmpid_7ombrwandb/kkejjbuy-wandb-metadata.json
+2023-11-08 07:12:13,148 INFO    wandb-upload_1:22253 [upload_job.py:push():131] Uploaded file /tmp/tmpid_7ombrwandb/x8fw7dhq-code/gchtmp.py
+2023-11-08 07:12:13,201 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 7
+2023-11-08 07:12:13,201 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:13,201 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 7
+2023-11-08 07:12:13,201 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:13,201 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 7
+2023-11-08 07:12:13,967 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_modified():288] file/dir modified: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/config.yaml
+2023-11-08 07:12:13,968 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_created():271] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/output.log
+2023-11-08 07:12:13,968 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_created():271] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/wandb-summary.json
+2023-11-08 07:12:13,975 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: poll_exit
+2023-11-08 07:12:15,970 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_modified():288] file/dir modified: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/output.log
+2023-11-08 07:12:16,990 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 8
+2023-11-08 07:12:16,991 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: poll_exit
+2023-11-08 07:12:16,991 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:16,991 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 8
+2023-11-08 07:12:16,991 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:16,991 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 8
+2023-11-08 07:12:16,992 INFO    SenderThread:22253 [job_builder.py:build():281] Attempting to build job artifact
+2023-11-08 07:12:16,992 INFO    SenderThread:22253 [job_builder.py:_get_source_type():393] is repo sourced job
+2023-11-08 07:12:16,994 INFO    SenderThread:22253 [job_builder.py:build():369] adding wandb-job metadata file
+2023-11-08 07:12:17,004 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 9
+2023-11-08 07:12:17,005 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:17,005 DEBUG   SenderThread:22253 [sender.py:send():380] send: artifact
+2023-11-08 07:12:17,005 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 9
+2023-11-08 07:12:17,730 INFO    wandb-upload_0:22253 [upload_job.py:push():86] Skipped uploading /jet/home/lisun/.local/share/wandb/artifacts/staging/tmphsr_h73h
+2023-11-08 07:12:17,730 INFO    wandb-upload_1:22253 [upload_job.py:push():86] Skipped uploading /jet/home/lisun/.local/share/wandb/artifacts/staging/tmp4h4c7n7v
+2023-11-08 07:12:17,954 INFO    wandb-upload_2:22253 [upload_job.py:push():89] Uploaded file /jet/home/lisun/.local/share/wandb/artifacts/staging/tmps7y6y2vj
+2023-11-08 07:12:17,972 INFO    Thread-12 :22253 [dir_watcher.py:_on_file_modified():288] file/dir modified: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/output.log
+2023-11-08 07:12:18,740 INFO    SenderThread:22253 [sender.py:send_artifact():1456] sent artifact job-https___github.com_ygritte723_Renet-pytorch.git_gchtmp.py - {'id': 'QXJ0aWZhY3Q6NjMxNzg2NDY3', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjExMzc2NDE4NA==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjMxNzg1ODUz', 'versionIndex': 2}}}
+2023-11-08 07:12:18,740 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:18,740 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 9
+2023-11-08 07:12:18,740 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 07:12:18,740 INFO    SenderThread:22253 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-11-08 07:12:18,974 INFO    SenderThread:22253 [dir_watcher.py:finish():388] scan: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files
+2023-11-08 07:12:18,974 INFO    SenderThread:22253 [dir_watcher.py:finish():402] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/wandb-summary.json wandb-summary.json
+2023-11-08 07:12:18,974 INFO    SenderThread:22253 [dir_watcher.py:finish():402] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/conda-environment.yaml conda-environment.yaml
+2023-11-08 07:12:18,977 INFO    SenderThread:22253 [dir_watcher.py:finish():402] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/requirements.txt requirements.txt
+2023-11-08 07:12:18,977 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: keepalive
+2023-11-08 07:12:18,978 INFO    SenderThread:22253 [dir_watcher.py:finish():402] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/output.log output.log
+2023-11-08 07:12:18,984 INFO    SenderThread:22253 [dir_watcher.py:finish():402] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/diff.patch diff.patch
+2023-11-08 07:12:18,984 INFO    SenderThread:22253 [dir_watcher.py:finish():402] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/wandb-metadata.json wandb-metadata.json
+2023-11-08 07:12:18,985 INFO    SenderThread:22253 [dir_watcher.py:finish():402] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/config.yaml config.yaml
+2023-11-08 07:12:18,992 INFO    SenderThread:22253 [dir_watcher.py:finish():402] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/code/gchtmp.py code/gchtmp.py
+2023-11-08 07:12:18,992 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 10
+2023-11-08 07:12:18,992 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:18,992 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 10
+2023-11-08 07:12:18,992 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:18,992 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 10
+2023-11-08 07:12:18,992 INFO    SenderThread:22253 [file_pusher.py:finish():175] shutting down file pusher
+2023-11-08 07:12:19,168 INFO    wandb-upload_2:22253 [upload_job.py:push():131] Uploaded file /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/conda-environment.yaml
+2023-11-08 07:12:19,170 INFO    wandb-upload_1:22253 [upload_job.py:push():131] Uploaded file /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/requirements.txt
+2023-11-08 07:12:19,174 INFO    wandb-upload_0:22253 [upload_job.py:push():131] Uploaded file /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/wandb-summary.json
+2023-11-08 07:12:19,256 INFO    wandb-upload_3:22253 [upload_job.py:push():131] Uploaded file /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/output.log
+2023-11-08 07:12:19,302 INFO    wandb-upload_4:22253 [upload_job.py:push():131] Uploaded file /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/files/config.yaml
+2023-11-08 07:12:19,502 INFO    Thread-11 :22253 [sender.py:transition_state():613] send defer: 11
+2023-11-08 07:12:19,503 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:19,503 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 11
+2023-11-08 07:12:19,503 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:19,503 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 11
+2023-11-08 07:12:19,503 INFO    SenderThread:22253 [file_pusher.py:join():181] waiting for file pusher
+2023-11-08 07:12:19,503 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 12
+2023-11-08 07:12:19,503 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:19,504 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 12
+2023-11-08 07:12:19,504 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:19,504 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 12
+2023-11-08 07:12:19,504 INFO    SenderThread:22253 [file_stream.py:finish():595] file stream finish called
+2023-11-08 07:12:19,612 INFO    SenderThread:22253 [file_stream.py:finish():599] file stream finish is done
+2023-11-08 07:12:19,612 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 13
+2023-11-08 07:12:19,613 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:19,613 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 13
+2023-11-08 07:12:19,613 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:19,613 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 13
+2023-11-08 07:12:19,613 INFO    SenderThread:22253 [sender.py:transition_state():613] send defer: 14
+2023-11-08 07:12:19,614 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 07:12:19,614 DEBUG   SenderThread:22253 [sender.py:send():380] send: final
+2023-11-08 07:12:19,614 INFO    HandlerThread:22253 [handler.py:handle_request_defer():172] handle defer: 14
+2023-11-08 07:12:19,614 DEBUG   SenderThread:22253 [sender.py:send():380] send: footer
+2023-11-08 07:12:19,614 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: defer
+2023-11-08 07:12:19,614 INFO    SenderThread:22253 [sender.py:send_request_defer():609] handle sender defer: 14
+2023-11-08 07:12:19,615 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: poll_exit
+2023-11-08 07:12:19,615 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: poll_exit
+2023-11-08 07:12:19,615 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: server_info
+2023-11-08 07:12:19,616 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: server_info
+2023-11-08 07:12:19,618 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: get_summary
+2023-11-08 07:12:19,619 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: sampled_history
+2023-11-08 07:12:19,619 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 07:12:19,619 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: job_info
+2023-11-08 07:12:19,662 DEBUG   SenderThread:22253 [sender.py:send_request():407] send_request: job_info
+2023-11-08 07:12:19,663 INFO    MainThread:22253 [wandb_run.py:_footer_history_summary_info():3599] rendering history
+2023-11-08 07:12:19,663 INFO    MainThread:22253 [wandb_run.py:_footer_history_summary_info():3631] rendering summary
+2023-11-08 07:12:19,663 INFO    MainThread:22253 [wandb_run.py:_footer_sync_info():3558] logging synced files
+2023-11-08 07:12:19,663 DEBUG   HandlerThread:22253 [handler.py:handle_request():146] handle_request: shutdown
+2023-11-08 07:12:19,663 INFO    HandlerThread:22253 [handler.py:finish():866] shutting down handler
+2023-11-08 07:12:20,620 INFO    WriterThread:22253 [datastore.py:close():294] close: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231108_071207-zrepg8sl/run-zrepg8sl.wandb
+2023-11-08 07:12:20,663 INFO    SenderThread:22253 [sender.py:finish():1534] shutting down sender
+2023-11-08 07:12:20,663 INFO    SenderThread:22253 [file_pusher.py:finish():175] shutting down file pusher
+2023-11-08 07:12:20,663 INFO    SenderThread:22253 [file_pusher.py:join():181] waiting for file pusher

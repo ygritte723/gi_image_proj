@@ -1,0 +1,19 @@
+
+loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth
+feature_img_s:  <class 'torch.Tensor'>
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 84, in <module>
+    attn_heatmap(img_s_bs, img_q_bs, attn_s, attn_q)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 18, in attn_heatmap
+    img_s_heatmap = show_heatmap_on_image(img_s, attn_s_qs_normalized)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 32, in show_heatmap_on_image
+    attended_img = heatmap + np.float32(img_)
+ValueError: operands could not be broadcast together with shapes (5,5,3) (3,84,84)
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 84, in <module>
+    attn_heatmap(img_s_bs, img_q_bs, attn_s, attn_q)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 18, in attn_heatmap
+    img_s_heatmap = show_heatmap_on_image(img_s, attn_s_qs_normalized)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 32, in show_heatmap_on_image
+    attended_img = heatmap + np.float32(img_)
+ValueError: operands could not be broadcast together with shapes (5,5,3) (3,84,84)

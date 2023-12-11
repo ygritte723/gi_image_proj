@@ -1,0 +1,208 @@
+{
+    "os": "Linux-4.18.0-193.28.1.el8_2.x86_64-x86_64-with-glibc2.28",
+    "python": "3.9.6",
+    "heartbeatAt": "2023-11-05T12:43:03.896246",
+    "startedAt": "2023-11-05T12:43:03.136066",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py",
+    "codePathLocal": "htpm.py",
+    "codePath": "htpm.py",
+    "git": {
+        "remote": "https://github.com/ygritte723/Renet-pytorch.git",
+        "commit": "3797c38039066c52db9307eb580a809e7afd549e"
+    },
+    "email": null,
+    "root": "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI",
+    "host": "dv001.ib.bridges2.psc.edu",
+    "username": "lisun",
+    "executable": "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/bin/python",
+    "cpu_count": 32,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 1873.03046875,
+        "min": 1500.0,
+        "max": 3000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1860.454,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1912.139,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1967.081,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1680.081,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1655.803,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1640.861,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1721.339,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1775.339,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1930.113,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1630.915,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1499.115,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1640.339,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1624.168,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1637.359,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1798.561,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1798.753,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1799.93,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1799.678,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1798.091,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1798.594,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1687.71,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1798.588,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1798.582,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1797.966,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1798.376,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1783.563,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1622.314,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1637.447,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1627.262,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1629.133,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1614.598,
+            "min": 1500.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1801.053,
+            "min": 1500.0,
+            "max": 3000.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 294.29180908203125,
+            "used": 18.51852035522461
+        }
+    },
+    "gpu": "Quadro RTX 5000",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "Quadro RTX 5000",
+            "memory_total": 17179869184
+        }
+    ],
+    "memory": {
+        "total": 251.75424194335938
+    }
+}

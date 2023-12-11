@@ -1,0 +1,12 @@
+
+loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/gchtmp.py", line 126, in <module>
+    ccacam = GradCAM(model=model, target_layers=model.cca,use_cuda=True)
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/pytorch_grad_cam/grad_cam.py", line 8, in __init__
+    super(
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/pytorch_grad_cam/base_cam.py", line 27, in __init__
+    self.activations_and_grads = ActivationsAndGradients(
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/pytorch_grad_cam/activations_and_gradients.py", line 11, in __init__
+    for target_layer in target_layers:
+TypeError: 'method' object is not iterable

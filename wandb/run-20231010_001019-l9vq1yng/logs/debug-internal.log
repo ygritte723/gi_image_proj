@@ -1,0 +1,170 @@
+2023-10-10 00:10:19,218 INFO    StreamThr :74099 [internal.py:wandb_internal():90] W&B internal server running at pid: 74099, started at: 2023-10-10 00:10:19.217779
+2023-10-10 00:10:19,219 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: status
+2023-10-10 00:10:19,221 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: status
+2023-10-10 00:10:19,222 DEBUG   SenderThread:74099 [sender.py:send():302] send: header
+2023-10-10 00:10:19,222 INFO    WriterThread:74099 [datastore.py:open_for_write():75] open: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/run-l9vq1yng.wandb
+2023-10-10 00:10:19,489 DEBUG   SenderThread:74099 [sender.py:send():302] send: run
+2023-10-10 00:10:19,764 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: check_version
+2023-10-10 00:10:19,788 INFO    SenderThread:74099 [dir_watcher.py:__init__():216] watching files in: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files
+2023-10-10 00:10:19,788 INFO    SenderThread:74099 [sender.py:_start_run_threads():913] run started: l9vq1yng with start time 1696911019.212889
+2023-10-10 00:10:19,788 DEBUG   SenderThread:74099 [sender.py:send():302] send: summary
+2023-10-10 00:10:19,790 INFO    SenderThread:74099 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2023-10-10 00:10:19,790 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: check_version
+2023-10-10 00:10:19,848 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: run_start
+2023-10-10 00:10:19,853 DEBUG   HandlerThread:74099 [meta.py:__init__():35] meta init
+2023-10-10 00:10:19,853 DEBUG   HandlerThread:74099 [meta.py:__init__():50] meta init done
+2023-10-10 00:10:19,853 DEBUG   HandlerThread:74099 [meta.py:probe():216] probe
+2023-10-10 00:10:19,860 DEBUG   HandlerThread:74099 [meta.py:_setup_git():206] setup git
+2023-10-10 00:10:19,881 DEBUG   HandlerThread:74099 [meta.py:_setup_git():213] setup git done
+2023-10-10 00:10:19,882 DEBUG   HandlerThread:74099 [meta.py:_save_code():88] save code
+2023-10-10 00:10:19,889 DEBUG   HandlerThread:74099 [meta.py:_save_code():109] save code done
+2023-10-10 00:10:19,889 DEBUG   HandlerThread:74099 [meta.py:_save_patches():126] save patches
+2023-10-10 00:10:20,093 DEBUG   HandlerThread:74099 [meta.py:_save_patches():168] save patches done
+2023-10-10 00:10:20,093 DEBUG   HandlerThread:74099 [meta.py:_save_pip():54] save pip
+2023-10-10 00:10:20,094 DEBUG   HandlerThread:74099 [meta.py:_save_pip():68] save pip done
+2023-10-10 00:10:20,094 DEBUG   HandlerThread:74099 [meta.py:_save_conda():75] save conda
+2023-10-10 00:10:20,791 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_created():275] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/code/htpm.py
+2023-10-10 00:10:20,792 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_created():275] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/requirements.txt
+2023-10-10 00:10:20,792 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_created():275] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/diff.patch
+2023-10-10 00:10:20,792 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_created():275] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/conda-environment.yaml
+2023-10-10 00:10:20,792 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_created():275] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/wandb-summary.json
+2023-10-10 00:10:20,792 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_created():275] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/code
+2023-10-10 00:10:27,495 DEBUG   HandlerThread:74099 [meta.py:_save_conda():85] save conda done
+2023-10-10 00:10:27,495 DEBUG   HandlerThread:74099 [meta.py:probe():254] probe done
+2023-10-10 00:10:27,501 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: stop_status
+2023-10-10 00:10:27,502 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: stop_status
+2023-10-10 00:10:27,508 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:27,678 DEBUG   SenderThread:74099 [sender.py:send():302] send: telemetry
+2023-10-10 00:10:27,680 DEBUG   SenderThread:74099 [sender.py:send():302] send: exit
+2023-10-10 00:10:27,680 INFO    SenderThread:74099 [sender.py:send_exit():438] handling exit code: 1
+2023-10-10 00:10:27,680 INFO    SenderThread:74099 [sender.py:send_exit():440] handling runtime: 7
+2023-10-10 00:10:27,701 INFO    SenderThread:74099 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2023-10-10 00:10:27,701 INFO    SenderThread:74099 [sender.py:send_exit():446] send defer
+2023-10-10 00:10:27,701 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:27,702 DEBUG   SenderThread:74099 [sender.py:send():302] send: files
+2023-10-10 00:10:27,702 INFO    SenderThread:74099 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2023-10-10 00:10:27,702 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:27,702 INFO    SenderThread:74099 [sender.py:_save_file():1156] saving file code/htpm.py with policy now
+2023-10-10 00:10:27,702 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 0
+2023-10-10 00:10:27,703 INFO    SenderThread:74099 [sender.py:_save_file():1156] saving file diff.patch with policy now
+2023-10-10 00:10:27,703 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:27,703 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 0
+2023-10-10 00:10:27,703 INFO    SenderThread:74099 [sender.py:transition_state():459] send defer: 1
+2023-10-10 00:10:27,703 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:27,703 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 1
+2023-10-10 00:10:27,759 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:27,760 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 1
+2023-10-10 00:10:27,760 INFO    SenderThread:74099 [sender.py:transition_state():459] send defer: 2
+2023-10-10 00:10:27,760 DEBUG   SenderThread:74099 [sender.py:send():302] send: stats
+2023-10-10 00:10:27,760 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:27,760 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 2
+2023-10-10 00:10:27,760 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:27,760 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 2
+2023-10-10 00:10:27,760 INFO    SenderThread:74099 [sender.py:transition_state():459] send defer: 3
+2023-10-10 00:10:27,760 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:27,760 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 3
+2023-10-10 00:10:27,760 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:27,760 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 3
+2023-10-10 00:10:27,761 INFO    SenderThread:74099 [sender.py:transition_state():459] send defer: 4
+2023-10-10 00:10:27,761 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:27,761 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 4
+2023-10-10 00:10:27,761 DEBUG   SenderThread:74099 [sender.py:send():302] send: summary
+2023-10-10 00:10:27,762 INFO    SenderThread:74099 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2023-10-10 00:10:27,762 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:27,762 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 4
+2023-10-10 00:10:27,762 INFO    SenderThread:74099 [sender.py:transition_state():459] send defer: 5
+2023-10-10 00:10:27,762 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:27,762 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 5
+2023-10-10 00:10:27,762 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:27,762 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 5
+2023-10-10 00:10:27,803 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:27,808 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/conda-environment.yaml
+2023-10-10 00:10:27,808 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/wandb-summary.json
+2023-10-10 00:10:27,808 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_created():275] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/wandb-metadata.json
+2023-10-10 00:10:27,809 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_created():275] file/dir created: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/output.log
+2023-10-10 00:10:27,904 INFO    Thread-17 :74099 [upload_job.py:push():118] Skipped uploading /tmp/tmpnf_x2qw0wandb/2lls3w0a-code/htpm.py
+2023-10-10 00:10:28,036 INFO    SenderThread:74099 [sender.py:transition_state():459] send defer: 6
+2023-10-10 00:10:28,037 INFO    Thread-18 :74099 [upload_job.py:push():138] Uploaded file /tmp/tmpnf_x2qw0wandb/1r81gxoz-diff.patch
+2023-10-10 00:10:28,037 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:28,037 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:28,037 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 6
+2023-10-10 00:10:28,038 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:28,038 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 6
+2023-10-10 00:10:28,138 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:28,810 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/config.yaml
+2023-10-10 00:10:28,904 INFO    Thread-16 :74099 [upload_job.py:push():138] Uploaded file /tmp/tmpnf_x2qw0wandb/8mmpa886-wandb-metadata.json
+2023-10-10 00:10:29,813 INFO    Thread-12 :74099 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/output.log
+2023-10-10 00:10:31,697 INFO    SenderThread:74099 [sender.py:transition_state():459] send defer: 7
+2023-10-10 00:10:31,697 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:31,698 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:31,698 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 7
+2023-10-10 00:10:31,698 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:31,698 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 7
+2023-10-10 00:10:31,698 INFO    SenderThread:74099 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-10-10 00:10:31,799 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:31,816 INFO    SenderThread:74099 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/output.log
+2023-10-10 00:10:31,817 INFO    SenderThread:74099 [dir_watcher.py:finish():392] scan: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files
+2023-10-10 00:10:31,818 INFO    SenderThread:74099 [dir_watcher.py:finish():406] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/wandb-summary.json wandb-summary.json
+2023-10-10 00:10:31,818 INFO    SenderThread:74099 [dir_watcher.py:finish():406] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/conda-environment.yaml conda-environment.yaml
+2023-10-10 00:10:31,818 INFO    SenderThread:74099 [dir_watcher.py:finish():406] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/requirements.txt requirements.txt
+2023-10-10 00:10:31,821 INFO    SenderThread:74099 [dir_watcher.py:finish():406] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/output.log output.log
+2023-10-10 00:10:31,828 INFO    SenderThread:74099 [dir_watcher.py:finish():406] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/diff.patch diff.patch
+2023-10-10 00:10:31,828 INFO    SenderThread:74099 [dir_watcher.py:finish():406] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/wandb-metadata.json wandb-metadata.json
+2023-10-10 00:10:31,828 INFO    SenderThread:74099 [dir_watcher.py:finish():406] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/config.yaml config.yaml
+2023-10-10 00:10:31,837 INFO    SenderThread:74099 [dir_watcher.py:finish():406] scan save: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/code/htpm.py code/htpm.py
+2023-10-10 00:10:31,837 INFO    SenderThread:74099 [sender.py:transition_state():459] send defer: 8
+2023-10-10 00:10:31,837 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:31,837 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:31,837 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 8
+2023-10-10 00:10:31,838 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:31,838 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 8
+2023-10-10 00:10:31,838 INFO    SenderThread:74099 [file_pusher.py:finish():171] shutting down file pusher
+2023-10-10 00:10:31,938 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:31,938 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:32,040 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:32,040 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:32,141 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:32,141 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:32,144 INFO    Thread-23 :74099 [upload_job.py:push():138] Uploaded file /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/config.yaml
+2023-10-10 00:10:32,174 INFO    Thread-22 :74099 [upload_job.py:push():138] Uploaded file /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/output.log
+2023-10-10 00:10:32,202 INFO    Thread-21 :74099 [upload_job.py:push():138] Uploaded file /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/requirements.txt
+2023-10-10 00:10:32,205 INFO    Thread-19 :74099 [upload_job.py:push():138] Uploaded file /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/wandb-summary.json
+2023-10-10 00:10:32,211 INFO    Thread-20 :74099 [upload_job.py:push():138] Uploaded file /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/files/conda-environment.yaml
+2023-10-10 00:10:32,242 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:32,242 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:32,343 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:32,344 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:32,411 INFO    Thread-11 :74099 [sender.py:transition_state():459] send defer: 9
+2023-10-10 00:10:32,412 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:32,412 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 9
+2023-10-10 00:10:32,412 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:32,412 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 9
+2023-10-10 00:10:32,444 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:32,505 INFO    SenderThread:74099 [sender.py:transition_state():459] send defer: 10
+2023-10-10 00:10:32,505 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:32,505 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:32,506 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 10
+2023-10-10 00:10:32,506 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:32,506 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 10
+2023-10-10 00:10:32,506 INFO    SenderThread:74099 [sender.py:transition_state():459] send defer: 11
+2023-10-10 00:10:32,506 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: defer
+2023-10-10 00:10:32,506 DEBUG   SenderThread:74099 [sender.py:send():302] send: final
+2023-10-10 00:10:32,506 INFO    HandlerThread:74099 [handler.py:handle_request_defer():164] handle defer: 11
+2023-10-10 00:10:32,506 DEBUG   SenderThread:74099 [sender.py:send():302] send: footer
+2023-10-10 00:10:32,506 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: defer
+2023-10-10 00:10:32,506 INFO    SenderThread:74099 [sender.py:send_request_defer():455] handle sender defer: 11
+2023-10-10 00:10:32,606 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: poll_exit
+2023-10-10 00:10:32,606 DEBUG   SenderThread:74099 [sender.py:send_request():316] send_request: poll_exit
+2023-10-10 00:10:32,607 INFO    SenderThread:74099 [file_pusher.py:join():176] waiting for file pusher
+2023-10-10 00:10:32,898 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: sampled_history
+2023-10-10 00:10:32,899 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: get_summary
+2023-10-10 00:10:32,899 INFO    MainThread:74099 [wandb_run.py:_footer_history_summary_info():3305] rendering history
+2023-10-10 00:10:32,899 INFO    MainThread:74099 [wandb_run.py:_footer_history_summary_info():3337] rendering summary
+2023-10-10 00:10:32,899 INFO    MainThread:74099 [wandb_run.py:_footer_sync_info():3261] logging synced files
+2023-10-10 00:10:32,899 DEBUG   HandlerThread:74099 [handler.py:handle_request():141] handle_request: shutdown
+2023-10-10 00:10:32,899 INFO    HandlerThread:74099 [handler.py:finish():810] shutting down handler
+2023-10-10 00:10:33,506 INFO    WriterThread:74099 [datastore.py:close():279] close: /ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/wandb/run-20231010_001019-l9vq1yng/run-l9vq1yng.wandb
+2023-10-10 00:10:33,797 INFO    SenderThread:74099 [sender.py:finish():1312] shutting down sender
+2023-10-10 00:10:33,797 INFO    SenderThread:74099 [file_pusher.py:finish():171] shutting down file pusher
+2023-10-10 00:10:33,797 INFO    SenderThread:74099 [file_pusher.py:join():176] waiting for file pusher
+2023-10-10 00:10:33,901 INFO    MainThread:74099 [internal.py:handle_exit():80] Internal process exited

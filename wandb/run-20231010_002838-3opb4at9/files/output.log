@@ -1,0 +1,30 @@
+
+loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 77, in <module>
+    attn_s, attn_q = model((feature_img_s, feature_img_q))
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/nn/parallel/data_parallel.py", line 169, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/models/renet.py", line 93, in forward
+    return self.ccaother(spt, qry)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/models/renet.py", line 190, in ccaother
+    attn_s = attn_s.view(84,84)
+UnboundLocalError: local variable 'attn_s' referenced before assignment
+Traceback (most recent call last):
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 77, in <module>
+    attn_s, attn_q = model((feature_img_s, feature_img_q))
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/nn/parallel/data_parallel.py", line 169, in forward
+    return self.module(*inputs[0], **kwargs[0])
+  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/models/renet.py", line 93, in forward
+    return self.ccaother(spt, qry)
+  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/models/renet.py", line 190, in ccaother
+    attn_s = attn_s.view(84,84)
+UnboundLocalError: local variable 'attn_s' referenced before assignment
