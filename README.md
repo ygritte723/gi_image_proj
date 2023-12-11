@@ -1,45 +1,44 @@
-# Renet-pytorch
+# Relational Embedded Few-Shot Network for GI image classification
 
-Pytorch implementation for paper [Renet (Relational embedding network)](https://arxiv.org/abs/2108.09666).
+## Overview
+A deep learning model for classifying gastrointestinal diseases using endoscopic images. It utilizes Few-Shot Learning, data augmentation, relational embedding, and bi-level routing attention to accurately analyze medical images.
+![arct](readme/arct.png)
 
-## Requirements
+## Features
+- Few-Shot Learning (FSL)
+![FSL](readme/FSLparadigm.png)
 
-- Python==3.9.6
-- torch==1.7.1
-- torchvision==0.8.2
-- GPU: NVIDIA GeForce RTX 3090 * 1
+- Data Augmentation via Task Interpolation
+![task](readme/taskinterpolation.png)
+- Relational Embedding
+  - Self Corelation Representation
+    ![scr](readme/scr.png)
 
-## Algorithm
+  - Cross Corelation Representation
+    ![ccr](readme/ccr.png)
 
-![image1](readme/1.png)
-- Self-correlation Representation:  a base feature map -> a self-correlation tensor
+- Bi-Level Routing Attention Mechanism
+![biattn](readme/biattn.png)
 
-- Cross-correlation Attention: a self-correlation tensor -> co-attention
+## Installation
+```bash
+git clone https://github.com/your-github/REFSN.git
+cd REFSN
+pip install -r requirements.txt
+```
+## Usage
+Detailed instructions for data preparation, training, and evaluation.
 
-![image2](readme/2.png)
+## Dataset
+Tested on Hyper-Kvasir and Mini-ImageNet datasets.
 
-## Mini-Imagenet-S
+## Results
+Achieved notable performance metrics on the Kvasir dataset.
 
-According to the split in [ICLR(Meta-Learning with Fewer Tasks through Task Interpolation)](http://arxiv.org/abs/2106.02695), I split the raw [mini-Imagenet](https://github.com/yaoyao-liu/mini-imagenet-tools) dataset to reduce its training classes by specific sequence.
+| Metric     | Value  |
+|------------|--------|
+| Accuracy   | 0.901  |
+| Precision  | 0.845  |
+| Recall     | 0.942  |
+| F1 Score   | 0.891  |
 
-## Dermnet-S
-
-According to the split in [ICLR(Meta-Learning with Fewer Tasks through Task Interpolation)](http://arxiv.org/abs/2106.02695), I split the raw [Dermnet](https://www.kaggle.com/datasets/shubhamgoel27/dermnet) dataset to reduce its training classes by specific sequence.
-
-## ISIC 2018
-
-[ISIC 2018](https://challenge.isic-archive.com/data/#2018) is an extremely unbalanced dataset which only has 7 classes in total. So I trained it in 2-way 5-shot mode, while others are trained in 5-way mode.
-
-## Remove validation
-
-According to the training process in [ICLR(Meta-Learning with Fewer Tasks through Task Interpolation)](http://arxiv.org/abs/2106.02695), I remove the validation process during every epoch of training.
-
-## Benchmark
-
-|           |  Renet | Renet(gamma=2) | ProtoNet |  MAML |
-|:---------:|:------:|:--------------:|:--------:|:-----:|
-| ISIC 2018 | 78.033 |     64.245     |  78.180  | 61.42 |
-
-|       | Mini-Imagenet-S(12) | Mini-Imagenet-S(25) | Mini-Imagenet-S(38) | Mini-Imagenet-S(51) | Mini-Imagenet(64) |
-|:-----:|:-------------------:|:-------------------:|:-------------------:|:-------------------:|-------------------|
-| Renet |        65.231       |        73.133       |        76.521       |        79.226       | 80.463            |
