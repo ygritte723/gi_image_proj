@@ -12,10 +12,10 @@ A deep learning model for classifying gastrointestinal diseases using endoscopic
 <img src="readme/taskinterpolation.png" alt="Task" title="Task" width="400"/>
 
 - Relational Embedding
-  - Self Corelation Representation
+  - *Self Correlation Representation (SCR)*  
   <img src="readme/scr.png" alt="scr" title="scr" width="400"/>
   
-  - Cross Corelation Representation
+  - *Cross Correlation Representation (CCR)*  
   <img src="readme/ccr.png" alt="ccr" title="ccr" width="400"/>
 
 - Bi-Level Routing Attention Mechanism
