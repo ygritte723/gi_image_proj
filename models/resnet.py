@@ -9,8 +9,9 @@ import torch.nn as nn
 
 def conv3x3(in_planes, out_planes, stride=1):
     """3x3 convolution with padding"""
-    return nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride,
-                     padding=1, bias=False)
+    return nn.Conv2d(
+        in_planes, out_planes, kernel_size=3, stride=stride, padding=1, bias=False
+    )
 
 
 class BasicBlock(nn.Module):
@@ -53,12 +54,11 @@ class BasicBlock(nn.Module):
 
 
 class ResNet(nn.Module):
-
     def __init__(self, block=BasicBlock):
         self.inplanes = 3
         super(ResNet, self).__init__()
 
-        #self.args = args
+        # self.args = args
         self.layer1 = self._make_layer(block, 64, stride=2)
         self.layer2 = self._make_layer(block, 160, stride=2)
         self.layer3 = self._make_layer(block, 320, stride=2)
@@ -66,7 +66,9 @@ class ResNet(nn.Module):
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
-                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='leaky_relu')
+                nn.init.kaiming_normal_(
+                    m.weight, mode="fan_out", nonlinearity="leaky_relu"
+                )
             elif isinstance(m, nn.BatchNorm2d):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
@@ -75,8 +77,13 @@ class ResNet(nn.Module):
         downsample = None
         if stride != 1 or self.inplanes != planes * block.expansion:
             downsample = nn.Sequential(
-                nn.Conv2d(self.inplanes, planes * block.expansion,
-                          kernel_size=1, stride=1, bias=False),
+                nn.Conv2d(
+                    self.inplanes,
+                    planes * block.expansion,
+                    kernel_size=1,
+                    stride=1,
+                    bias=False,
+                ),
                 nn.BatchNorm2d(planes * block.expansion),
             )
 
@@ -87,7 +94,7 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, x):
-        #print(x.shape)
+        # print(x.shape)
         x = self.layer1(x)
 
         x = self.layer2(x)
@@ -95,14 +102,12 @@ class ResNet(nn.Module):
         x = self.layer3(x)
 
         x = self.layer4(x)
-        #print(x.shape)
+        # print(x.shape)
 
         return x
-        
-        
-        
-        
-#model = ResNet()
-#img = torch.rand((64,3,84,84))
-#print(model(img))
-#print(model)
+
+
+# model = ResNet()
+# img = torch.rand((64,3,84,84))
+# print(model(img))
+# print(model)

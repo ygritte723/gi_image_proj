@@ -3,7 +3,6 @@ import torch
 
 
 class Meter:
-
     def __init__(self):
         self.list = []
 

@@ -27,31 +27,51 @@ class _NonLocalBlockND(nn.Module):
         max_pool_layer = nn.MaxPool2d(kernel_size=(2, 2))
         bn = nn.BatchNorm2d
 
-        self.g = conv_nd(in_channels=self.in_channels, out_channels=self.inter_channels,
-                         kernel_size=1, stride=1, padding=0)
+        self.g = conv_nd(
+            in_channels=self.in_channels,
+            out_channels=self.inter_channels,
+            kernel_size=1,
+            stride=1,
+            padding=0,
+        )
 
         self.W = nn.Sequential(
-            conv_nd(in_channels=self.inter_channels, out_channels=self.in_channels,
-                    kernel_size=1, stride=1, padding=0),
-            bn(self.in_channels)
+            conv_nd(
+                in_channels=self.inter_channels,
+                out_channels=self.in_channels,
+                kernel_size=1,
+                stride=1,
+                padding=0,
+            ),
+            bn(self.in_channels),
         )
         nn.init.constant_(self.W[1].weight, 0)
         nn.init.constant_(self.W[1].bias, 0)
 
-        self.theta = conv_nd(in_channels=self.in_channels, out_channels=self.inter_channels,
-                             kernel_size=1, stride=1, padding=0)
-        self.phi = conv_nd(in_channels=self.in_channels, out_channels=self.inter_channels,
-                           kernel_size=1, stride=1, padding=0)
+        self.theta = conv_nd(
+            in_channels=self.in_channels,
+            out_channels=self.inter_channels,
+            kernel_size=1,
+            stride=1,
+            padding=0,
+        )
+        self.phi = conv_nd(
+            in_channels=self.in_channels,
+            out_channels=self.inter_channels,
+            kernel_size=1,
+            stride=1,
+            padding=0,
+        )
 
         if sub_sample:
             self.g = nn.Sequential(self.g, max_pool_layer)
             self.phi = nn.Sequential(self.phi, max_pool_layer)
 
     def forward(self, x):
-        '''
+        """
         :param x: (b, c, t, h, w)
         :return:
-        '''
+        """
 
         batch_size = x.size(0)
 
@@ -75,6 +95,9 @@ class _NonLocalBlockND(nn.Module):
 
 class NonLocalSelfAttention(_NonLocalBlockND):
     def __init__(self, in_channels, inter_channels=None, sub_sample=True):
-        super(NonLocalSelfAttention, self).__init__(in_channels,
-                                              inter_channels=inter_channels,
-                                              dimension=2, sub_sample=sub_sample)
+        super(NonLocalSelfAttention, self).__init__(
+            in_channels,
+            inter_channels=inter_channels,
+            dimension=2,
+            sub_sample=sub_sample,
+        )

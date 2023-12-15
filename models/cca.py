@@ -15,7 +15,11 @@ class CCA(torch.nn.Module):
             ch_in = 1 if i == 0 else planes[i - 1]
             ch_out = planes[i]
             k_size = kernel_sizes[i]
-            nn_modules.append(SepConv4d(in_planes=ch_in, out_planes=ch_out, ksize=k_size, do_padding=True))
+            nn_modules.append(
+                SepConv4d(
+                    in_planes=ch_in, out_planes=ch_out, ksize=k_size, do_padding=True
+                )
+            )
             if i != num_layers - 1:
                 nn_modules.append(nn.ReLU(inplace=True))
         self.conv = nn.Sequential(*nn_modules)
@@ -26,13 +30,24 @@ class CCA(torch.nn.Module):
         # because of the ReLU layers in between linear layers,
         # this operation is different than convolving a single time with the filters+filters^T
         # and therefore it makes sense to do this.
-        x = self.conv(x) + self.conv(x.permute(0, 1, 4, 5, 2, 3)).permute(0, 1, 4, 5, 2, 3)
+        x = self.conv(x) + self.conv(x.permute(0, 1, 4, 5, 2, 3)).permute(
+            0, 1, 4, 5, 2, 3
+        )
         return x
 
 
 class SepConv4d(nn.Module):
-    """ approximates 3 x 3 x 3 x 3 kernels via two subsequent 3 x 3 x 1 x 1 and 1 x 1 x 3 x 3 """
-    def __init__(self, in_planes, out_planes, stride=(1, 1, 1), ksize=3, do_padding=True, bias=False):
+    """approximates 3 x 3 x 3 x 3 kernels via two subsequent 3 x 3 x 1 x 1 and 1 x 1 x 3 x 3"""
+
+    def __init__(
+        self,
+        in_planes,
+        out_planes,
+        stride=(1, 1, 1),
+        ksize=3,
+        do_padding=True,
+        bias=False,
+    ):
         super(SepConv4d, self).__init__()
         self.isproj = False
         padding1 = (0, ksize // 2, ksize // 2) if do_padding else (0, 0, 0)
@@ -41,17 +56,38 @@ class SepConv4d(nn.Module):
         if in_planes != out_planes:
             self.isproj = True
             self.proj = nn.Sequential(
-                nn.Conv2d(in_channels=in_planes, out_channels=out_planes, kernel_size=1, bias=bias, padding=0),
-                nn.BatchNorm2d(out_planes))
+                nn.Conv2d(
+                    in_channels=in_planes,
+                    out_channels=out_planes,
+                    kernel_size=1,
+                    bias=bias,
+                    padding=0,
+                ),
+                nn.BatchNorm2d(out_planes),
+            )
 
         self.conv1 = nn.Sequential(
-            nn.Conv3d(in_channels=in_planes, out_channels=in_planes, kernel_size=(1, ksize, ksize),
-                      stride=stride, bias=bias, padding=padding1),
-            nn.BatchNorm3d(in_planes))
+            nn.Conv3d(
+                in_channels=in_planes,
+                out_channels=in_planes,
+                kernel_size=(1, ksize, ksize),
+                stride=stride,
+                bias=bias,
+                padding=padding1,
+            ),
+            nn.BatchNorm3d(in_planes),
+        )
         self.conv2 = nn.Sequential(
-            nn.Conv3d(in_channels=in_planes, out_channels=in_planes, kernel_size=(ksize, ksize, 1),
-                      stride=stride, bias=bias, padding=padding2),
-            nn.BatchNorm3d(in_planes))
+            nn.Conv3d(
+                in_channels=in_planes,
+                out_channels=in_planes,
+                kernel_size=(ksize, ksize, 1),
+                stride=stride,
+                bias=bias,
+                padding=padding2,
+            ),
+            nn.BatchNorm3d(in_planes),
+        )
         self.relu = nn.ReLU(inplace=True)
 
     def forward(self, x):
