@@ -38,7 +38,7 @@ class Conv(nn.Module):
         return x
 
 
-model = Conv()
-img = torch.rand((64, 3, 84, 84))
-print(model(img).shape)
+#model = Conv()
+#img = torch.rand((64, 3, 84, 84))
+#print(model(img).shape)
 # print(model)
