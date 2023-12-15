@@ -1,11 +1,12 @@
-import torch.nn as nn
-import numpy as np
 import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+import torch.nn as nn
+from PIL import Image
+from torchvision import transforms
+
 from common.utils import load_model, setup_run
 from models.renet import RENet
-import matplotlib.pyplot as plt
-from torchvision import transforms
-from PIL import Image
 
 padim = lambda x, h_max: np.concatenate((x, x.view(-1)[0].copy().expand(1, 3, h_max - x.shape[2], x.shape[3]) / 1e20),
                                         axis=0) if x.shape[2] < h_max else x

@@ -1,11 +1,12 @@
-import os
-import wandb
-import torch
-import pprint
-import random
 import argparse
 import numpy as np
+import os
+import pprint
+import random
+import torch
 from termcolor import colored
+
+import wandb
 
 
 def setup_run(arg_mode='train'):

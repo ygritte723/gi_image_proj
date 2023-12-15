@@ -2,25 +2,24 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from models.resnet import ResNet
-from models.conv import Conv
-from models.transformer import Transformer
+from models.bra_legacy import BiLevelRoutingAttention
 from models.cca import CCA
-from models.scr import SCR, SelfCorrelationComputation
-from models.others.se import SqueezeExcitation
+from models.conv import Conv
 from models.others.lsa import LocalSelfAttention
 from models.others.nlsa import NonLocalSelfAttention
 from models.others.sce import SpatialContextEncoder
-from models.bra_legacy import BiLevelRoutingAttention
+from models.others.se import SqueezeExcitation
+from models.resnet import ResNet
+from models.scr import SCR, SelfCorrelationComputation
+from models.transformer import Transformer
 
 
 class RENet(nn.Module):
 
-    def __init__(self, args, mode=None, dim=10, drop_path=0., layer_scale_init_value=-1,
-                       num_heads=2, n_win=5, qk_dim=None, qk_scale=None,
-                       kv_per_win=4, kv_downsample_ratio=4, kv_downsample_kernel=None, kv_downsample_mode='ada_avgpool',
-                       topk=4, param_attention="qkvo", param_routing=False, diff_routing=False, soft_routing=False, mlp_ratio=4, mlp_dwconv=False,
-                       side_dwconv=5, before_attn_dwconv=3, pre_norm=True, auto_pad=False):
+    def __init__(self, args, mode=None, dim=10, num_heads=2, n_win=5, qk_dim=None, qk_scale=None,
+                 kv_per_win=4, kv_downsample_ratio=4, kv_downsample_kernel=None, kv_downsample_mode='ada_avgpool',
+                 topk=4, param_attention="qkvo", param_routing=False, diff_routing=False, soft_routing=False,
+                 side_dwconv=5, auto_pad=False):
         super().__init__()
         self.mode = mode
         self.args = args

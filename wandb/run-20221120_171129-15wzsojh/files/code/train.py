@@ -1,17 +1,16 @@
 import os
-import tqdm
 import time
-import wandb
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+import tqdm
 from torch.utils.data import DataLoader
 
+import wandb
 from common.meter import Meter
 from common.utils import detect_grad_nan, compute_accuracy, set_seed, setup_run
-from models.dataloader.samplers import CategoriesSampler
 from models.dataloader.data_utils import dataset_builder
+from models.dataloader.samplers import CategoriesSampler
 from models.renet import RENet
 from test import test_main, evaluate
 

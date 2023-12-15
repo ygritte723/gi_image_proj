@@ -1,15 +1,14 @@
 import os
-import tqdm
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+import tqdm
 from torch.utils.data import DataLoader
 
 from common.meter import Meter
 from common.utils import compute_accuracy, load_model, setup_run, by
-from models.dataloader.samplers import CategoriesSampler
 from models.dataloader.data_utils import dataset_builder
+from models.dataloader.samplers import CategoriesSampler
 from models.renet import RENet
 
 

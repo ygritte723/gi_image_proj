@@ -1,18 +1,18 @@
 
-import torch.nn as nn
-import numpy as np
 import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from PIL import Image
+from pytorch_grad_cam import GradCAM, HiResCAM, ScoreCAM, GradCAMPlusPlus, AblationCAM, XGradCAM, EigenCAM, FullGrad
+from pytorch_grad_cam.utils.image import show_cam_on_image
+from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
+from torchvision import transforms
+
 from common.utils import load_model, setup_run
 from models.renet import RENet
-import matplotlib.pyplot as plt
-from torchvision import transforms
-from PIL import Image
-import torch
-import torch.nn.functional as F
-from pytorch_grad_cam import GradCAM, HiResCAM, ScoreCAM, GradCAMPlusPlus, AblationCAM, XGradCAM, EigenCAM, FullGrad
-from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
-from pytorch_grad_cam.utils.image import show_cam_on_image
-
 
 padim = lambda x, h_max: np.concatenate((x, x.view(-1)[0].copy().expand(1, 3, h_max - x.shape[2], x.shape[3]) / 1e20),
                                         axis=0) if x.shape[2] < h_max else x
@@ -46,7 +46,7 @@ def attn_heatmap_sca(cam, img_s, img_q):
     # You can also pass aug_smooth=True and eigen_smooth=True, to apply smoothing.
     grayscale_cam = cam(input_tensor=img_s, targets=targets)
     # In this example grayscale_cam has only one image in the batch:
-    cam_image = grayscale_cam[0, :]
+    grayscale_cam[0, :]
     img_s_heatmap = show_cam_on_image(img_s, grayscale_cam, use_rgb=True)
     
     grayscale_cam = cam(input_tensor=img_q, targets=targets)

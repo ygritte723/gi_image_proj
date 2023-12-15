@@ -1,9 +1,9 @@
+import numpy as np
+import os
 import os.path as osp
 from PIL import Image
 from torch.utils.data import Dataset
 from torchvision import transforms
-import os
-import numpy as np
 
 
 class MiniImageNet(Dataset):

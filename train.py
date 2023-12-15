@@ -1,21 +1,19 @@
 import os
-import tqdm
 import time
-import wandb
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+import tqdm
 from torch.utils.data import DataLoader
 
+import wandb
 from common.meter import Meter
 from common.utils import detect_grad_nan, compute_accuracy, set_seed, setup_run, load_model
-from models.dataloader.samplers import CategoriesSampler
 from models.dataloader.data_utils import dataset_builder
+from models.dataloader.samplers import CategoriesSampler
+from models.mlti import cross_mix
 from models.renet import RENet
 from test import test_main, evaluate
-
-from models.mlti import cross_mix
 
 
 def train(epoch, model, loader, optimizer, args=None):
@@ -45,7 +43,7 @@ def train(epoch, model, loader, optimizer, args=None):
         if args.mix:
         # Get data and labels from the next batch 
             if i+1 < len(tqdm_gen):
-                second_id = (i + 1) % len(tqdm_gen)
+                (i + 1) % len(tqdm_gen)
                 ((data_sec , train_labels_sec), (data_aux_sec, train_labels_aux_sec)) = next(zip(train_loader, train_loader_aux), 1)
                 data_sec , train_labels_sec = data_sec.cuda(), train_labels_sec.cuda()
                 data_aux_sec , train_labels_aux_sec = data_aux_sec.cuda(), train_labels_aux_sec.cuda()
