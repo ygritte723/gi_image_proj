@@ -4,9 +4,8 @@ import os
 import pprint
 import random
 import torch
-from termcolor import colored
-
 import wandb
+from termcolor import colored
 
 
 def setup_run(arg_mode='train'):
@@ -141,7 +140,8 @@ def parse_args(arg_mode):
 
     ''' about training specs '''
     parser.add_argument('-batch', type=int, default=128, help='auxiliary batch size')
-    parser.add_argument('-temperature', type=float, default=0.2, metavar='tau', help='temperature for metric-based loss')
+    parser.add_argument('-temperature', type=float, default=0.2, metavar='tau',
+                        help='temperature for metric-based loss')
     parser.add_argument('-lamb', type=float, default=0.25, metavar='lambda', help='loss balancing term')
 
     ''' about training schedules '''
@@ -162,7 +162,8 @@ def parse_args(arg_mode):
     parser.add_argument('-self_method', type=str, default='scr')
 
     ''' about CCA '''
-    parser.add_argument('-temperature_attn', type=float, default=5.0, metavar='gamma', help='temperature for softmax in computing cross-attention')
+    parser.add_argument('-temperature_attn', type=float, default=5.0, metavar='gamma',
+                        help='temperature for softmax in computing cross-attention')
 
     ''' about env '''
     parser.add_argument('-gpu', default='0', help='the GPU ids e.g. \"0\", \"0,1\", \"0,1,2\", etc')

@@ -1,6 +1,5 @@
 """ code references: https://github.com/leaderj1001/Stand-Alone-Self-Attention """
 
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -9,14 +8,14 @@ import torch.nn.init as init
 
 class LocalSelfAttention(nn.Module):
     def __init__(
-        self,
-        in_channels,
-        out_channels,
-        kernel_size,
-        stride=1,
-        padding=0,
-        groups=1,
-        bias=False,
+            self,
+            in_channels,
+            out_channels,
+            kernel_size,
+            stride=1,
+            padding=0,
+            groups=1,
+            bias=False,
     ):
         super(LocalSelfAttention, self).__init__()
         self.out_channels = out_channels
@@ -26,7 +25,7 @@ class LocalSelfAttention(nn.Module):
         self.groups = groups
 
         assert (
-            self.out_channels % self.groups == 0
+                self.out_channels % self.groups == 0
         ), "out_channels should be divided by groups. (example: out_channels: 40, groups: 4)"
 
         self.rel_h = nn.Parameter(

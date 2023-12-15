@@ -4,9 +4,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import tqdm
+import wandb
 from torch.utils.data import DataLoader
 
-import wandb
 from common.meter import Meter
 from common.utils import (
     detect_grad_nan,
@@ -40,7 +40,7 @@ def train(epoch, model, loader, optimizer, args=None):
 
     # Begin at 1
     for i, ((data, train_labels), (data_aux, train_labels_aux)) in enumerate(
-        zip(tqdm_gen, train_loader_aux), 1
+            zip(tqdm_gen, train_loader_aux), 1
     ):
         # print('i: '+ str(i))
 
@@ -140,7 +140,7 @@ def train_main(args):
     # valset = Dataset('val', args)
     # val_sampler = CategoriesSampler(valset.label, args.val_episode, args.way, args.shot + args.query)
     # val_loader = DataLoader(dataset=valset, batch_sampler=val_sampler, num_workers=8, pin_memory=True)
-    #''' fix val set for all epochs '''
+    # ''' fix val set for all epochs '''
     # val_loader = [x for x in val_loader]
 
     set_seed(args.seed)

@@ -106,7 +106,6 @@ class ResNet(nn.Module):
 
         return x
 
-
 # model = ResNet()
 # img = torch.rand((64,3,84,84))
 # print(model(img))

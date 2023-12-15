@@ -76,16 +76,16 @@ class Img2Seq(nn.Module):
 
 class Transformer(nn.Module):
     def __init__(
-        self,
-        img_size=(84, 84),
-        patch_size=(12, 12),
-        n_channels=3,
-        d_model=320,
-        nhead=4,
-        dim_feedforward=256,
-        blocks=8,
-        mlp_head_units=[1280, 640],
-        n_classes=640,
+            self,
+            img_size=(84, 84),
+            patch_size=(12, 12),
+            n_channels=3,
+            d_model=320,
+            nhead=4,
+            dim_feedforward=256,
+            blocks=8,
+            mlp_head_units=[1280, 640],
+            n_classes=640,
     ):
         super().__init__()
         """
@@ -124,7 +124,6 @@ class Transformer(nn.Module):
         # batch = self.
         # output = self.output(batch)
         return batch
-
 
 # model = Transformer()
 # img = torch.rand((64,3,84,84))

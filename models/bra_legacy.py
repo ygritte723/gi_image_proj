@@ -31,12 +31,12 @@ class TopkRouting(nn.Module):
     """
 
     def __init__(
-        self, qk_dim, topk=4, qk_scale=None, param_routing=False, diff_routing=False
+            self, qk_dim, topk=4, qk_scale=None, param_routing=False, diff_routing=False
     ):
         super().__init__()
         self.topk = topk
         self.qk_dim = qk_dim
-        self.scale = qk_scale or qk_dim**-0.5
+        self.scale = qk_scale or qk_dim ** -0.5
         self.diff_routing = diff_routing
         # TODO: norm layer before/after linear?
         self.emb = nn.Linear(qk_dim, qk_dim) if param_routing else nn.Identity()
@@ -98,7 +98,7 @@ class KVGather(nn.Module):
 
         if self.mul_weight == "soft":
             topk_kv = (
-                r_weight.view(n, p2, topk, 1, 1) * topk_kv
+                    r_weight.view(n, p2, topk, 1, 1) * topk_kv
             )  # (n, p^2, k, w^2, c_kv)
         elif self.mul_weight == "hard":
             raise NotImplementedError("differentiable hard routing TBA")
@@ -134,23 +134,23 @@ class BiLevelRoutingAttention(nn.Module):
     """
 
     def __init__(
-        self,
-        dim,
-        num_heads=8,
-        n_win=7,
-        qk_dim=None,
-        qk_scale=None,
-        kv_per_win=4,
-        kv_downsample_ratio=4,
-        kv_downsample_kernel=None,
-        kv_downsample_mode="identity",
-        topk=4,
-        param_attention="qkvo",
-        param_routing=False,
-        diff_routing=False,
-        soft_routing=False,
-        side_dwconv=3,
-        auto_pad=False,
+            self,
+            dim,
+            num_heads=8,
+            n_win=7,
+            qk_dim=None,
+            qk_scale=None,
+            kv_per_win=4,
+            kv_downsample_ratio=4,
+            kv_downsample_kernel=None,
+            kv_downsample_mode="identity",
+            topk=4,
+            param_attention="qkvo",
+            param_routing=False,
+            diff_routing=False,
+            soft_routing=False,
+            side_dwconv=3,
+            auto_pad=False,
     ):
         super().__init__()
         # local attention setting
@@ -159,9 +159,9 @@ class BiLevelRoutingAttention(nn.Module):
         self.num_heads = num_heads
         self.qk_dim = qk_dim or dim
         assert (
-            self.qk_dim % num_heads == 0 and self.dim % num_heads == 0
+                self.qk_dim % num_heads == 0 and self.dim % num_heads == 0
         ), "qk_dim and dim must be divisible by num_heads!"
-        self.scale = qk_scale or self.qk_dim**-0.5
+        self.scale = qk_scale or self.qk_dim ** -0.5
 
         ################side_dwconv (i.e. LCE in ShuntedTransformer)###########
         self.lepe = (
@@ -184,7 +184,7 @@ class BiLevelRoutingAttention(nn.Module):
         self.soft_routing = soft_routing
         # router
         assert not (
-            self.param_routing and not self.diff_routing
+                self.param_routing and not self.diff_routing
         )  # cannot be with_param=True and diff_routing=False
         self.router = TopkRouting(
             qk_dim=self.qk_dim,
@@ -302,7 +302,7 @@ class BiLevelRoutingAttention(nn.Module):
             kv_pix, "(n j i) c h w -> n (j i) (h w) c", j=self.n_win, i=self.n_win
         )
 
-        q_win, k_win = q.mean([2, 3]), kv[..., 0 : self.qk_dim].mean(
+        q_win, k_win = q.mean([2, 3]), kv[..., 0: self.qk_dim].mean(
             [2, 3]
         )  # window-wise qk, (n, p^2, c_qk), (n, p^2, c_qk)
 
@@ -310,7 +310,7 @@ class BiLevelRoutingAttention(nn.Module):
         # NOTE: call contiguous to avoid gradient warning when using ddp
         lepe = self.lepe(
             rearrange(
-                kv[..., self.qk_dim :],
+                kv[..., self.qk_dim:],
                 "n (j i) h w c -> n c (j h) (i w)",
                 j=self.n_win,
                 i=self.n_win,
@@ -344,11 +344,11 @@ class BiLevelRoutingAttention(nn.Module):
 
         # param-free multihead attention
         attn_weight = (
-            q_pix * self.scale
-        ) @ k_pix_sel  # (n*p^2, m, w^2, c) @ (n*p^2, m, c, topk*h_kv*w_kv) -> (n*p^2, m, w^2, topk*h_kv*w_kv)
+                              q_pix * self.scale
+                      ) @ k_pix_sel  # (n*p^2, m, w^2, c) @ (n*p^2, m, c, topk*h_kv*w_kv) -> (n*p^2, m, w^2, topk*h_kv*w_kv)
         attn_weight = self.attn_act(attn_weight)
         out = (
-            attn_weight @ v_pix_sel
+                attn_weight @ v_pix_sel
         )  # (n*p^2, m, w^2, topk*h_kv*w_kv) @ (n*p^2, m, topk*h_kv*w_kv, c) -> (n*p^2, m, w^2, c)
         out = rearrange(
             out,

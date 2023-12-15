@@ -27,15 +27,15 @@ class CategoriesSampler:
             batch = []
             # print(len(self.m_ind))
             classes = torch.randperm(len(self.m_ind))[
-                : self.n_cls
-            ]  # random sample num_class indices, e.g. 5
+                      : self.n_cls
+                      ]  # random sample num_class indices, e.g. 5
             # print(classes)
             for c in classes:
                 l = self.m_ind[c]  # all data indices of this class
 
                 pos = torch.randperm(len(l))[
-                    : self.n_per
-                ]  # sample n_per data index of this class
+                      : self.n_per
+                      ]  # sample n_per data index of this class
                 batch.append(l[pos])
                 # print(len(l[pos]))
             batch = torch.stack(batch).t().reshape(-1)

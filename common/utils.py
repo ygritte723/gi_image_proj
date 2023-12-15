@@ -4,9 +4,8 @@ import os
 import pprint
 import random
 import torch
-from termcolor import colored
-
 import wandb
+from termcolor import colored
 
 
 def setup_run(arg_mode="train"):
@@ -90,14 +89,14 @@ def load_model(model, dir):
     pretrained_dict = torch.load(dir)["params"]
 
     if (
-        pretrained_dict.keys() == model_dict.keys()
+            pretrained_dict.keys() == model_dict.keys()
     ):  # load from a parallel meta-trained model and all keys match
         print("all state_dict keys match, loading model from :", dir)
         model.load_state_dict(pretrained_dict)
     else:
         print("loading model from :", dir)
         if (
-            "encoder" in list(pretrained_dict.keys())[0]
+                "encoder" in list(pretrained_dict.keys())[0]
         ):  # load from a parallel meta-trained model
             if "module" in list(pretrained_dict.keys())[0]:
                 pretrained_dict = {k[7:]: v for k, v in pretrained_dict.items()}

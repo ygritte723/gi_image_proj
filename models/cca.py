@@ -40,13 +40,13 @@ class SepConv4d(nn.Module):
     """approximates 3 x 3 x 3 x 3 kernels via two subsequent 3 x 3 x 1 x 1 and 1 x 1 x 3 x 3"""
 
     def __init__(
-        self,
-        in_planes,
-        out_planes,
-        stride=(1, 1, 1),
-        ksize=3,
-        do_padding=True,
-        bias=False,
+            self,
+            in_planes,
+            out_planes,
+            stride=(1, 1, 1),
+            ksize=3,
+            do_padding=True,
+            bias=False,
     ):
         super(SepConv4d, self).__init__()
         self.isproj = False

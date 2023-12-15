@@ -5,12 +5,12 @@ from torch.nn.modules.utils import _quadruple
 
 class SCR(nn.Module):
     def __init__(
-        self,
-        planes=[640, 64, 64, 64, 640],
-        stride=(1, 1, 1),
-        ksize=3,
-        do_padding=False,
-        bias=False,
+            self,
+            planes=[640, 64, 64, 64, 640],
+            stride=(1, 1, 1),
+            ksize=3,
+            do_padding=False,
+            bias=False,
     ):
         super(SCR, self).__init__()
         self.ksize = _quadruple(ksize) if isinstance(ksize, int) else ksize
