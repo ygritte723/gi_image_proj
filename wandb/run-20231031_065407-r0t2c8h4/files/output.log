@@ -1,6 +1,0 @@
-
-loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth
-Traceback (most recent call last):
-  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 90, in <module>
-    feature_img_s = feature_img_s.squeeze.mean(dim=0)
-AttributeError: 'builtin_function_or_method' object has no attribute 'mean'

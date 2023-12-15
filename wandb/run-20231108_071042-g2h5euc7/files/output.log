@@ -1,8 +1,0 @@
-
-loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth
-Traceback (most recent call last):
-  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/gchtmp.py", line 121, in <module>
-    scacam = GradCAM(model=model, target_layers=model.scr_module[-1], use_cuda=True)
-  File "/ocean/projects/asc170022p/lisun/miniconda3/envs/fewshot/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
-    raise AttributeError("'{}' object has no attribute '{}'".format(
-AttributeError: 'DataParallel' object has no attribute 'scr_module'

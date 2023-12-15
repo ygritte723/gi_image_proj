@@ -1,7 +1,0 @@
-loading model from : /jet/home/lisun/work/xinliu/fewshot/Renet-MLTI/checkpoints/isic/5shot-2way/test222/max_acc.pth
-torch.Size([1, 640, 5, 5]) torch.Size([1, 640, 5, 5])
-torch.Size([1, 1, 5, 5, 5, 5]) torch.Size([1, 1, 5, 5, 5, 5])
-Traceback (most recent call last):
-  File "/ocean/projects/asc170022p/lisun/xinliu/fewshot/Renet-MLTI/htpm.py", line 84, in <module>
-    attn_s = attn_s.permute(2, 0, 1).unsqueeze(0)
-RuntimeError: permute(sparse_coo): number of dimensions in the tensor input does not match the length of the desired ordering of dimensions i.e. input.dim() = 2 is not equal to len(dims) = 3
