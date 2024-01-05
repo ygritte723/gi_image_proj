@@ -1,4 +1,4 @@
-# Relational Embedded Few-Shot Network for GI image classification
+# Lightweight Relational Embedding in Task-Interpolated Few-Shot Networks for Enhanced Gastrointestinal Disease Classification
 
 ## Overview
 
@@ -38,11 +38,17 @@ Please refer to the [test.py](test.py), [train.py](train.py), and [scripts](scri
 
 ## Dataset
 
-Tested on Hyper-Kvasir and Mini-ImageNet datasets.
+| Dataset      | images | classes | Purpose                     |
+|--------------|--------|---------|-----------------------------| 
+| Kvasir-v2    | 8000   |   8     |GI disease classification    |
+| Hyper-Kvasir | 10,662 |   23    |GI disease classification    |
+| ISIC 2018    | 10,208 |   8     |Lesion classification        |
+| Cholec80     | 241,842|   7     |Surgery tool recognition     |
+| Mini-ImageNet| 60,000 |   100   |General object classification|
 
 ## Results
 
-Achieved notable performance metrics on the Kvasir dataset.
+Achieved notable performance metrics on the Kvasir-v2 dataset.
 
 | Metric    | Value |
 |-----------|-------|
